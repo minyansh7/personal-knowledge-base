@@ -46,6 +46,7 @@ Main catalog of pages in the wiki.
 | How and when to build multi-agent systems | LangChain synthesis on multi-agent systems, context engineering, read/write tasks, production challenges | 2026-04-05 |
 | How we built our multi-agent research system | Anthropic's detailed post on multi-agent research system architecture, prompt engineering, evaluation, production challenges | 2026-04-05 |
 | skills/skills/thatguysizemore/agent-config/SKILL.md at main | OpenClaw skill for modifying agent context files, workflows for file identification, state checking, change drafting | 2026-04-05 |
+| Test source-ingestor skill | Validation source note for the ingest workflow, ensuring page updates, index sync, and logging are correct | 2026-04-05 |
 
 ## Synthesis
 
