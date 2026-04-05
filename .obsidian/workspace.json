@@ -11,10 +11,14 @@
             "id": "e5ef49f6402125a5",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "raw/articles/Context Engineering/Context Engineering.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Context Engineering"
             }
           }
         ]
@@ -90,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "raw/articles/Context Engineering/Context Engineering.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for Context Engineering"
             }
           },
           {
@@ -108,11 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "raw/articles/Context Engineering/Context Engineering.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from Context Engineering"
             }
           },
           {
@@ -150,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CLAUDE.md",
+                "file": "raw/articles/Context Engineering/Context Engineering.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of CLAUDE"
+              "title": "Outline of Context Engineering"
             }
           }
         ]
@@ -177,8 +183,28 @@
       "bases:Create new base": false
     }
   },
-  "active": "e02abb3a4d0ced3d",
+  "active": "e5ef49f6402125a5",
   "lastOpenFiles": [
+    "image-6.png",
+    "raw/articles/Context Engineering/Context Engineering.md",
+    "image-10.png",
+    "image-9.png",
+    "image-8.png",
+    "image.png",
+    "image-7.png",
+    "image-5.png",
+    "image-4.png",
+    "image-3.png",
+    "image-2.png",
+    "raw/articles/Context Engineering.md",
+    "raw/articles/Context Engineering",
+    "raw/articles/How and when to build multi-agent systems.md",
+    "raw/articles/skillsskillsthatguysizemoreagent-configSKILL.md at main.md",
+    "raw/articles/How we built our multi-agent research system.md",
+    "raw/articles/Effective context engineering for AI agents.md",
+    "raw/articles/Agent Development Kit (ADK).md",
+    "raw/articles/A practical guide to building agents.md",
+    "CLAUDE.md",
     "wiki/source-notes/skills skills thatguysizemore agent-config SKILL.md at main.md",
     "wiki/source-notes/How we built our multi-agent research system.md",
     "wiki/source-notes/How and when to build multi-agent systems.md",
@@ -196,34 +222,13 @@
     "wiki/Markets",
     "wiki/source-notes/A practical guide to building agents.md",
     "wiki/source-notes",
-    "raw/articles/skillsskillsthatguysizemoreagent-configSKILL.md at main.md",
-    "raw/articles/How we built our multi-agent research system.md",
-    "raw/articles/How and when to build multi-agent systems.md",
-    "raw/articles/Effective context engineering for AI agents.md",
-    "raw/articles/Context Engineering.md",
-    "raw/articles/Agent Development Kit (ADK).md",
-    "raw/articles/A practical guide to building agents.md",
     "wiki",
     "raw/transcripts",
     "raw/articles",
     "raw/inbox",
     "log.md",
     "index.md",
-    "CLAUDE.md",
-    "assets/3bde53c9578d74f6e05c3e515e20b910c5a8c20a-4584x4584.webp",
-    "assets/09a90e0aca54859553e93c18683e7fd33ff16d4c-2654x2148.webp",
-    "assets/43abe7e54b56a891e74a8542944dfbd33f07f49c-1000x1000.svg",
-    "assets/0442fe138158e84ffce92bed1624dd09f37ac46f-2292x1288.webp",
-    "assets/1198befc0b33726c45692ac40f764022f4de1bf2-4584x2579.webp",
-    "assets/faa261102e46c7f090a2402a49000ffae18c5dd6-2292x1290.webp",
     "assets/skillsskillsthatguysizemoreagent-configSKILL.md at main.md",
-    "assets/How we built our multi-agent research system.md",
-    "assets/How and when to build multi-agent systems.md",
-    "assets/Effective context engineering for AI agents.md",
-    "assets",
-    "raw/faa261102e46c7f090a2402a49000ffae18c5dd6-2292x1290.webp",
-    "raw/assets/faa261102e46c7f090a2402a49000ffae18c5dd6-2292x1290.webp",
-    "raw/assets/1198befc0b33726c45692ac40f764022f4de1bf2-4584x2579.webp",
-    "raw/assets/0442fe138158e84ffce92bed1624dd09f37ac46f-2292x1288.webp"
+    "assets/How we built our multi-agent research system.md"
   ]
 }

@@ -101,7 +101,7 @@ When updating existing pages, integrate new insights by adding bullets under rel
 
 ## Tools
 - **Search**: Use qmd for efficient wiki searches: `qmd search "topic"` returns relevant snippets.
-- **Images**: Download via Obsidian hotkey (Ctrl+Shift+D) after clipping.
+- **Images**: Download via Obsidian hotkey (Ctrl+V) after clipping and ensure saved in `/assets/`.
 - **Graph View**: Use Obsidian's graph to visualize connections.
 - **Dataview**: Query frontmatter for dynamic lists/tables.
 
