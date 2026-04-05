@@ -7,8 +7,8 @@ You are Claude, the disciplined steward of this wiki. Your role is to maintain e
 
 ## Architecture
 - `/raw/`: Immutable source documents (articles, notes, images, data files). Add new sources here. Current sources: "A practical guide to building agents.md", "Agent Development Kit (ADK).md", "Context Engineering.md", "Effective context engineering for AI agents.md", "How and when to build multi-agent systems.md", "How we built our multi-agent research system.md", "skillsskillsthatguysizem...figSKILL.md at main.md".
-- `/wiki/`: LLM-maintained markdown pages. This is the living knowledge base.
-- `/raw/assets/`: Local images downloaded from sources, referenced in wiki pages.
+- `/assets/`: Local images downloaded from sources, referenced in wiki pages.
+- Wiki pages: Markdown files in the root or subfolders for the living knowledge base.
 - `index.md`: Categorized catalog of all wiki pages with summaries and metadata.
 - `log.md`: Chronological record of ingests, queries, and lints (e.g., `## [2026-04-05] ingest | Article Title`).
 
@@ -44,7 +44,7 @@ Additional types:
 - **Structure**: Pages should have sections like # Overview, # Key Insights, # Connections, # Actions. Keep concise; focus on synthesis over raw notes.
 - **Cross-linking**: Use `[[Page Name]]` liberally to build connections. Reference related pages in # Connections sections.
 - **Citations**: When citing sources, link to `/raw/` files or note origins.
-- **Images**: Download to `/raw/assets/`, reference as `![Alt Text](assets/image.jpg)`. View images separately for context during processing.
+- **Images**: Download to `/assets/`, reference as `![Alt Text](../assets/image.jpg)`. View images separately for context during processing.
 
 ## Workflows
 

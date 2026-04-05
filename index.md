@@ -1,30 +1,38 @@
 # Index
 
-This is the categorized catalog of all wiki pages.
+Main catalog of pages in the wiki.
 
 ## Self
-- [[Self/Identity]] - Core identity and values.
-- [[Self/Goals]] - Current and long-term goals.
+
+| Page | Summary | Last Updated |
+|------|---------|--------------|
 
 ## Ideas
-- [[Ideas/AI Ventures]] - Hypotheses on AI opportunities.
+
+| Page | Summary | Last Updated |
+|------|---------|--------------|
 
 ## Markets
-- [[Markets/AI Trends]] - Key trends in AI.
+
+| Page | Summary | Last Updated |
+|------|---------|--------------|
 
 ## Projects
-- [[Projects/Current Experiment]] - Active project details.
+
+| Page | Summary | Last Updated |
+|------|---------|--------------|
 
 ## People
-- [[People/Mentor X]] - Profile of key individual.
+
+| Page | Summary | Last Updated |
+|------|---------|--------------|
 
 ## Opportunities
-- [[Opportunities/Potential Deal]] - Commercial opportunity.
 
-## Synthesis
-- [[Synthesis/2026 Strategy]] - Overarching synthesis.
+| Page | Summary | Last Updated |
+|------|---------|--------------|
 
-## Actions
-- [[Actions/Q2 Priorities]] - Next steps.
+## Source Notes
 
-*Last updated: 2026-04-05*
+| Page | Summary | Last Updated |
+|------|---------|--------------|

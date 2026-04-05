@@ -1,0 +1,222 @@
+{
+  "main": {
+    "id": "ef4726c7ec19ef1f",
+    "type": "split",
+    "children": [
+      {
+        "id": "29de6b56493c7475",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e5ef49f6402125a5",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "42a810edad867695",
+    "type": "split",
+    "children": [
+      {
+        "id": "96d9bae56cdb8d2c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e02abb3a4d0ced3d",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "bf46b9f319e53175",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "aecb5a4907f8e4de",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "51e2de148484f990",
+    "type": "split",
+    "children": [
+      {
+        "id": "3c716f31a3d25b68",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d44c3fb120a2a661",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "9d9b3cfff53e3b6f",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "4c098d28feab02e9",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "1c9cda57ba126ca0",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "925a6ca5086369fa",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "CLAUDE.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of CLAUDE"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "e02abb3a4d0ced3d",
+  "lastOpenFiles": [
+    "log.md",
+    "index.md",
+    "CLAUDE.md",
+    "assets/3bde53c9578d74f6e05c3e515e20b910c5a8c20a-4584x4584.webp",
+    "assets/09a90e0aca54859553e93c18683e7fd33ff16d4c-2654x2148.webp",
+    "assets/43abe7e54b56a891e74a8542944dfbd33f07f49c-1000x1000.svg",
+    "assets/0442fe138158e84ffce92bed1624dd09f37ac46f-2292x1288.webp",
+    "assets/1198befc0b33726c45692ac40f764022f4de1bf2-4584x2579.webp",
+    "assets/faa261102e46c7f090a2402a49000ffae18c5dd6-2292x1290.webp",
+    "assets/skillsskillsthatguysizemoreagent-configSKILL.md at main.md",
+    "assets/How we built our multi-agent research system.md",
+    "assets/How and when to build multi-agent systems.md",
+    "assets/Effective context engineering for AI agents.md",
+    "assets/Context Engineering.md",
+    "assets/Agent Development Kit (ADK).md",
+    "assets/A practical guide to building agents.md",
+    "assets",
+    "untitled folder",
+    "raw/skillsskillsthatguysizemoreagent-configSKILL.md at main.md",
+    "raw/How we built our multi-agent research system.md",
+    "raw/How and when to build multi-agent systems.md",
+    "raw/Effective context engineering for AI agents.md",
+    "raw/Context Engineering.md",
+    "raw/Agent Development Kit (ADK).md",
+    "raw/A practical guide to building agents.md",
+    "raw",
+    "skillsskillsthatguysizemoreagent-configSKILL.md at main.md",
+    "How we built our multi-agent research system.md",
+    "How and when to build multi-agent systems.md",
+    "Effective context engineering for AI agents.md",
+    "Context Engineering.md",
+    "Agent Development Kit (ADK).md",
+    "A practical guide to building agents.md",
+    "raw/faa261102e46c7f090a2402a49000ffae18c5dd6-2292x1290.webp",
+    "raw/assets/faa261102e46c7f090a2402a49000ffae18c5dd6-2292x1290.webp",
+    "raw/assets/1198befc0b33726c45692ac40f764022f4de1bf2-4584x2579.webp",
+    "raw/assets/0442fe138158e84ffce92bed1624dd09f37ac46f-2292x1288.webp",
+    "raw/assets",
+    "raw/untitled folder"
+  ]
+}
