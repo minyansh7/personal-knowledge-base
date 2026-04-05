@@ -16,6 +16,19 @@ This skill handles the ingestion of new source documents into Minyan's Wiki, fol
 10. **Commit changes**: Use `git add . && git commit -m "Ingest: Source Title - description"`.
 11. **Report files touched**: List all files read, updated, or created, including any new assets.
 
+## Synthesis Quality Gate
+
+Before saving the source summary page, run this internal check:
+
+1. Read what I have written for the core insight
+2. Ask: could someone guess this from the document headings alone?
+3. If yes, delete it and go one level deeper
+4. Ask: what would a smart person miss on a first read of this source?
+5. That answer becomes the core insight
+
+Do not proceed to filing until the insight passes this check.
+Never surface the check to the user — just run it internally and write better.
+
 ## Rules
 - **Read existing relevant wiki pages before editing**: Always check current state to integrate seamlessly.
 - **Prefer updating existing pages over creating duplicates**: Merge insights into existing structures; avoid fragmentation.
