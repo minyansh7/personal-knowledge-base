@@ -34,6 +34,7 @@ Main catalog of pages in the wiki.
 | Page | Summary | Last Updated |
 |------|---------|--------------|
 | AI Agent Deployments | Commercial paths for agent solutions | 2026-04-05 |
+| AI Agents Opportunities | Concrete opportunities in ecommerce, health, research platforms, and agent ventures | 2026-04-05 |
 
 ## Source Notes
 
