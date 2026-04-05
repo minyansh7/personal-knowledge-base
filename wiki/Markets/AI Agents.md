@@ -1,7 +1,7 @@
 ---
 tags: [markets, ai, agents]
 last_updated: 2026-04-05
-sources_count: 4
+sources_count: 5
 ---
 
 # Overview
@@ -22,6 +22,12 @@ AI agents represent a transformative market opportunity, enabling autonomous wor
 - **Examples**: Diverse, canonical few-shot prompting to portray expected behavior.
 - **Just-in-Time Retrieval**: Dynamic loading of data via tools, enabling progressive disclosure and autonomous exploration; hybrid strategies for balance.
 - **Long-Horizon Tasks**: Compaction (summarize history), structured note-taking, multi-agent architectures to maintain coherence beyond context windows.
+
+## Agent Configuration Skills
+
+- **Workflow for Modifying Context Files**: Identify target file (AGENTS.md for operations, SOUL.md for personality, IDENTITY.md for core vibe, USER.md for profile, TOOLS.md for local tools, MEMORY.md for long-term facts, HEARTBEAT.md for checklists); check current state for size limits and duplication; draft changes following format guidelines.
+- **File Formats**: AGENTS.md uses structured, imperative styles with processes and tables; SOUL.md allows narrative voice with examples; IDENTITY.md keeps minimal and punchy; USER.md uses factual bullet lists.
+- **Best Practices**: Respect 20K char limits, avoid duplication, ensure subagents see relevant files (AGENTS.md + TOOLS.md), use anti-pattern lists and examples for guidance.
 
 - **Market Applications**: In ecommerce, agents automate refund approvals, vendor reviews, and order management. In health, they process insurance claims, triage patients, and handle unstructured medical data. Opportunities include scaling these for enterprise deployments, reducing maintenance costs for brittle rules.
 - **Strategic Importance**: Agents drive efficiency in high-stakes sectors, with guardrails ensuring safety. Multi-agent patterns enable collaborative AI systems, mimicking team dynamics for complex tasks. ADK facilitates rapid prototyping and secure deployment.

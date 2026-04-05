@@ -17,7 +17,7 @@ Main catalog of pages in the wiki.
 
 | Page | Summary | Last Updated |
 |------|---------|--------------|
-| AI Agents | AI agents market with ADK framework, advanced context engineering (system prompts, tools, just-in-time retrieval, long-horizon compaction), applications in ecommerce/health, strategic importance | 2026-04-05 |
+| AI Agents | AI agents market with ADK framework, advanced context engineering (system prompts, tools, just-in-time retrieval, long-horizon compaction), agent configuration skills (file workflows, formats), applications in ecommerce/health, strategic importance | 2026-04-05 |
 
 ## Projects
 
@@ -45,6 +45,7 @@ Main catalog of pages in the wiki.
 | Effective context engineering for AI agents | Anthropic's guide on context engineering for agents, strategies for managing context state, just-in-time retrieval, long-horizon techniques | 2026-04-05 |
 | How and when to build multi-agent systems | LangChain synthesis on multi-agent systems, context engineering, read/write tasks, production challenges | 2026-04-05 |
 | How we built our multi-agent research system | Anthropic's detailed post on multi-agent research system architecture, prompt engineering, evaluation, production challenges | 2026-04-05 |
+| skills/skills/thatguysizemore/agent-config/SKILL.md at main | OpenClaw skill for modifying agent context files, workflows for file identification, state checking, change drafting | 2026-04-05 |
 
 ## Synthesis
 
