@@ -12,7 +12,6 @@ Main catalog of pages in the wiki.
 | Page | Summary | Last Updated |
 |------|---------|--------------|
 | AI Ventures | Strategic opportunities in agent development | 2026-04-05 |
-| LLM Wiki | Pattern for LLM-maintained personal knowledge bases | 2026-04-05 |
 
 ## Markets
 
@@ -48,8 +47,14 @@ Main catalog of pages in the wiki.
 | How and when to build multi-agent systems | LangChain synthesis on multi-agent systems, context engineering, read/write tasks, production challenges | 2026-04-05 |
 | How we built our multi-agent research system | Anthropic's detailed post on multi-agent research system architecture, prompt engineering, evaluation, production challenges | 2026-04-05 |
 | skills/skills/thatguysizemore/agent-config/SKILL.md at main | OpenClaw skill for modifying agent context files, workflows for file identification, state checking, change drafting | 2026-04-05 |
-| LLM Wiki | Idea file on LLM Wiki pattern for knowledge bases | 2026-04-05 |
+| LLM Wiki | Source note for the LLM Wiki pattern; see Meta/LLM Wiki Pattern for the main page | 2026-04-05 |
 | Test source-ingestor skill | Validation source note for the ingest workflow, ensuring page updates, index sync, and logging are correct | 2026-04-05 |
+
+## Meta
+
+| Page | Summary | Last Updated |
+|------|---------|--------------|
+| LLM Wiki Pattern | Architectural documentation for this wiki: three-layer pattern, operations (ingest/query/lint), indexing, and LLM-as-maintainer rationale | 2026-04-05 |
 
 ## Synthesis
 

@@ -1,16 +1,16 @@
 ---
-tags: [ideas, llm, wiki, knowledge-base]
+tags: [meta, llm, wiki, architecture, knowledge-base]
 last_updated: 2026-04-05
 sources_count: 1
 ---
 
 # Overview
 
-LLM Wiki is a pattern for building personal knowledge bases using LLMs, where the LLM maintains a persistent, interlinked wiki that compounds knowledge through incremental ingestion and synthesis, rather than rediscovering insights on every query.
+Architectural documentation for how this wiki works. The LLM Wiki pattern builds personal knowledge bases where the LLM maintains a persistent, interlinked wiki that compounds knowledge through incremental ingestion and synthesis, rather than rediscovering insights on every query.
 
 # Key Insights
 
-- **Three-Layer Architecture**: Raw immutable sources, LLM-maintained wiki pages, and a schema configuration that guides LLM behavior for disciplined maintenance.
+- **Three-Layer Architecture**: Raw immutable sources, LLM-maintained wiki pages, and a schema configuration (CLAUDE.md) that guides LLM behavior for disciplined maintenance.
 - **Operations**: Ingest (integrate new sources into wiki), Query (synthesize answers from wiki with citations), Lint (health-check for contradictions and gaps).
 - **Indexing and Logging**: index.md for navigation, log.md for chronological history; enables efficient wiki management without complex RAG infrastructure.
 - **Optional Tools**: CLI search like qmd for growing wikis; Obsidian for visualization and image handling.

@@ -18,7 +18,7 @@ Idea file describing LLM Wiki pattern for personal knowledge bases, emphasizing 
 
 # Connections
 
-- [[Ideas/LLM Wiki]] - Main wiki page for this idea.
+- [[Meta/LLM Wiki Pattern]] - Main wiki page for this pattern.
 - [[raw/articles/LLM Wiki.md]] - Source document.
 
 # Actions
