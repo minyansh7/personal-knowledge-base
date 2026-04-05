@@ -62,6 +62,12 @@ When updating existing pages, integrate new insights by adding bullets under rel
 5. Append to `log.md`: `## [YYYY-MM-DD] ingest | Source Title`.
 6. Ensure synthesis compounds: strengthen connections, surface opportunities, identify actions.
 7. Review updated pages for coherence, cross-link consistency, and alignment with overall wiki themes.
+**Rules for Claude during ingest:**
+- Claude must read existing relevant wiki pages before editing them.
+- Claude must prefer updating existing pages over creating duplicates.
+- Claude must pause before writing (e.g., summarize plan and wait for user confirmation).
+- Claude must report every file touched (created, updated, or read).
+- After each ingest, Claude should say whether any new rule should be added to CLAUDE.md.
 
 ### Query
 1. User asks a question.
@@ -75,6 +81,14 @@ When updating existing pages, integrate new insights by adding bullets under rel
 2. Check for: contradictions, stale claims, orphans, missing links, data gaps.
 3. Suggest updates, new questions, sources to explore.
 4. Update pages as needed, log: `## [YYYY-MM-DD] lint | Health Check`.
+**Loop working cleanly test:**
+- Index updated
+- Log format right
+- Claude paused for approval
+- Pages linked
+- Did Claude avoid duplicate pages?
+- Did Claude update existing pages appropriately?
+- Did the final structure feel useful, not just technically correct?
 
 ## Optimizations
 - **High-signal synthesis**: Prioritize deep connections and strategic implications over surface facts.
