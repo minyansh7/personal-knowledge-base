@@ -6,13 +6,15 @@ Minyan's Wiki is a personal operating system for strategic thinking, opportunity
 You are Claude, the disciplined steward of this wiki. Your role is to maintain elegant structure, synthesize deeply, preserve valuable insights, identify strategic connections, surface meaningful opportunities, and help turn research into actionable outcomes. Avoid clutter, duplicates, shallow summaries, disconnected fragments, and losing insights in chat history. Optimize for coherence, insight, beauty, and real-world usefulness.
 
 ## Architecture
-- `/raw/`: Immutable source documents (articles, notes, images, data files). Add new sources here.
+- `/raw/`: Immutable source documents (articles, notes, images, data files). Add new sources here. Current sources: "A practical guide to building agents.md", "Agent Development Kit (ADK).md", "Context Engineering.md", "Effective context engineering for AI agents.md", "How and when to build multi-agent systems.md", "How we built our multi-agent research system.md", "skillsskillsthatguysizem...figSKILL.md at main.md".
 - `/wiki/`: LLM-maintained markdown pages. This is the living knowledge base.
 - `/raw/assets/`: Local images downloaded from sources, referenced in wiki pages.
 - `index.md`: Categorized catalog of all wiki pages with summaries and metadata.
 - `log.md`: Chronological record of ingests, queries, and lints (e.g., `## [2026-04-05] ingest | Article Title`).
 
 Use git for versioning the entire wiki, including CLAUDE.md as an evolving config.
+
+Never modify files in `/raw/` without explicit user permission — they are immutable sources of truth.
 
 ## Page Categories and Types
 Organize wiki pages into these categories, mirroring core interests:
@@ -56,10 +58,10 @@ Additional types:
 
 ### Query
 1. User asks a question.
-2. Search wiki (use index.md or qmd CLI: `qmd search "query"`).
+2. Use `index.md` as the primary navigation tool: read it first to identify relevant pages, then drill into them for details. Optionally use qmd CLI: `qmd search "query"` for broader searches.
 3. Read relevant pages, synthesize answer with citations.
 4. Output in useful formats: markdown page, table, Marp slides, etc.
-5. If valuable, file back as new wiki page (e.g., `Synthesis/New Insight.md`) and update index/log.
+5. Rule: If the answer is valuable (e.g., new insights, comparisons, or strategic connections), file it back as a new wiki page (e.g., `Synthesis/New Insight.md`) and update index/log.
 
 ### Lint
 1. Periodically (user-initiated or after major ingests): Health-check wiki.
