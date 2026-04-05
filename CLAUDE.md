@@ -10,7 +10,7 @@ You are Claude, the disciplined steward of this wiki. Your role is to maintain e
 - `/assets/`: Local images downloaded from sources, referenced in wiki pages.
 - `wiki/`: Folder containing all wiki pages, index.md, and log.md. May include subfolders for categories (e.g., `wiki/Markets/`).
 - `wiki/source-notes/`: Folder for source summary pages, one per ingested source.
-- `index.md`: Categorized catalog of all wiki pages with summaries and metadata. Organized by category with tables: | Page | Summary | Last Updated |.
+- `index.md`: Categorized catalog of all wiki pages with summaries and metadata. Organized by category with tables: | Page | Summary (1-2 sentences) | Last Updated |.
 - `log.md`: Chronological record of ingests, queries, and lints (e.g., `## [2026-04-05] ingest | Article Title`). Title: Full source name or descriptive phrase.
 
 Use git for versioning the entire wiki, including CLAUDE.md as an evolving config.
@@ -41,8 +41,8 @@ Additional types:
   sources_count: 3
   ---
   ```
-  `sources_count`: Number of sources contributing to the page; increment on updates from new sources. Use for Dataview queries in Obsidian.
-- **Structure**: Pages should have sections like # Overview, # Key Insights, # Connections, # Actions. Keep concise; focus on synthesis over raw notes.
+  `sources_count`: Number of sources contributing to the page; increment on updates from new sources. Increment sources_count only for substantive contributions that add new insights or data. Use for Dataview queries in Obsidian.
+- **Structure**: Pages should have sections like # Overview, # Key Insights, # Connections, # Actions. Keep concise; focus on synthesis over raw notes. For updates, maintain section structure; add new subsections if needed (e.g., under Key Insights).
 - **Cross-linking**: Use `[[Category/Subtopic]]` for internal links; ensure bidirectional links in # Connections sections. Reference related pages in # Connections sections.
 - **Citations**: When citing sources, link to `/raw/` files or note origins.
 - **Images**: Download to `/assets/`, reference as `![Alt Text](../assets/image.jpg)`. View images separately for context during processing.
@@ -54,10 +54,13 @@ Additional types:
 2. Read the source, extract key information, discuss takeaways with user for guidance.
 2.5. Read existing relevant wiki pages to determine if updates suffice or new pages are needed.
 3. Create/update relevant wiki pages (e.g., update entity pages, revise summaries, note contradictions).
-3.5. If creating new pages, discuss with user for approval.
-4. Update `index.md` with new/updated pages.
+When updating existing pages, integrate new insights by adding bullets under relevant sections (e.g., Key Insights) or revising overviews/actions; avoid full rewrites unless synthesizing contradictions.
+3.5. If creating new pages or making significant updates (e.g., adding new sections), discuss with user for approval.
+4. Update `index.md` with new/updated pages; revise summaries for material changes (e.g., new key insights).
+4.5. Review and update connected pages (e.g., if updating Markets, check Ideas/Opportunities) for consistency.
 5. Append to `log.md`: `## [YYYY-MM-DD] ingest | Source Title`.
 6. Ensure synthesis compounds: strengthen connections, surface opportunities, identify actions.
+7. Review updated pages for coherence and cross-link consistency.
 
 ### Query
 1. User asks a question.
