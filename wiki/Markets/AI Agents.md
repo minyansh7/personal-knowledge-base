@@ -31,6 +31,7 @@ AI agents represent a transformative market opportunity, enabling autonomous wor
 
 - **Market Applications**: In ecommerce, agents automate refund approvals, vendor reviews, and order management. In health, they process insurance claims, triage patients, and handle unstructured medical data. Opportunities include scaling these for enterprise deployments, reducing maintenance costs for brittle rules.
 - **Strategic Importance**: Agents drive efficiency in high-stakes sectors, with guardrails ensuring safety. Multi-agent patterns enable collaborative AI systems, mimicking team dynamics for complex tasks. ADK facilitates rapid prototyping and secure deployment.
+- **Ingest Validation**: Validating the source-ingestor workflow through test ingests reinforces the discipline of updating existing pages, creating source notes, and keeping index/log in sync.
 
 # Connections
 
