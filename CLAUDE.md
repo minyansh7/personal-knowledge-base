@@ -41,9 +41,9 @@ Additional types:
   sources_count: 3
   ---
   ```
-  `sources_count`: Number of sources contributing to the page; increment on updates from new sources. Increment sources_count only for substantive contributions that add new insights, sections, or significant data. Update last_updated on any revision, not just creation. Use for Dataview queries in Obsidian.
+  `sources_count`: Number of sources contributing to the page; increment on updates from new sources. Increment sources_count only for substantive contributions that add new insights, sections, or significant data (e.g., new section, major insight, or data that shifts understanding). Update last_updated on any revision, not just creation. Use for Dataview queries in Obsidian.
 - **Structure**: Pages should have sections like # Overview, # Key Insights, # Connections, # Actions. Keep concise; focus on synthesis over raw notes. For updates, maintain section structure; add new subsections if needed (e.g., under Key Insights).
-- **Cross-linking**: Use `[[Category/Subtopic]]` for internal links; ensure bidirectional links in # Connections sections. Reference related pages in # Connections sections.
+- **Cross-linking**: Use `[[Category/Subtopic]]` for internal links; ensure bidirectional links in # Connections sections. Reference related pages in # Connections sections. Aim for 2-3 links per page; link to related concepts mentioned.
 - **Citations**: When citing sources, link to `/raw/` files or note origins.
 - **Images**: Download to `/assets/`, reference as `![Alt Text](../assets/image.jpg)`. View images separately for context during processing.
 
@@ -51,13 +51,13 @@ Additional types:
 
 ### Ingest
 1. User adds source to `/raw/`.
-1.5. Validate source completeness and readability before proceeding.
-2. Read the source, extract key information, discuss takeaways with user for guidance.
+1.5. Validate source completeness and readability before proceeding. Check for truncated content or missing sections; if incomplete, note limitations and proceed with available content.
+2. Read the source, extract key information, discuss takeaways with user for guidance. For single-topic sources, update only the top 1-2 most relevant wiki pages; avoid associating with unrelated topics.
 2.5. Read existing relevant wiki pages to determine if updates suffice or new pages are needed.
 3. Create/update relevant wiki pages (e.g., update entity pages, revise summaries, note contradictions).
-When updating existing pages, integrate new insights by adding bullets under relevant sections (e.g., Key Insights) or revising overviews/actions; avoid full rewrites unless synthesizing contradictions.
+When updating existing pages, integrate new insights by adding bullets under relevant sections (e.g., Key Insights) or revising overviews/actions; avoid full rewrites unless synthesizing contradictions. For updates, prefer adding 1-2 bullets under existing sections; revise overviews only if core thesis changes.
 3.5. If creating new pages or making significant updates (e.g., adding new sections), discuss with user for approval.
-4. Update `index.md` with new/updated pages; revise summaries if new keywords or concepts are added.
+4. Update `index.md` with new/updated pages; revise summaries if new keywords or concepts are added. Revise summaries to include new keywords, keeping 1-2 sentences.
 4.5. Review and update connected pages (e.g., if updating Markets, check Ideas/Opportunities) for consistency.
 5. Append to `log.md`: `## [YYYY-MM-DD] ingest | Source Title`.
 6. Ensure synthesis compounds: strengthen connections, surface opportunities, identify actions.
