@@ -2,6 +2,12 @@
 
 Main catalog of pages in the wiki.
 
+## Actions
+
+| Page | Summary | Last Updated |
+|------|---------|--------------|
+| Q2 2026 | Next steps derived from full wiki synthesis: trust gap evaluation, read/write ratio filter, compaction-first design, CLAUDE.md lint cycle, personal content gaps | 2026-04-05 |
+
 ## Self
 
 | Page | Summary | Last Updated |
@@ -40,14 +46,14 @@ Main catalog of pages in the wiki.
 
 | Page | Summary | Last Updated |
 |------|---------|--------------|
-| A practical guide to building agents | Comprehensive guide to AI agents | 2026-04-05 |
-| Agent Development Kit (ADK) | Framework for building AI agents | 2026-04-05 |
-| Context Engineering | Strategies for agent context management | 2026-04-05 |
-| Effective context engineering for AI agents | Anthropic's guide on context engineering for agents, strategies for managing context state, just-in-time retrieval, long-horizon techniques | 2026-04-05 |
-| How and when to build multi-agent systems | LangChain synthesis on multi-agent systems, context engineering, read/write tasks, production challenges | 2026-04-05 |
-| How we built our multi-agent research system | Anthropic's detailed post on multi-agent research system architecture, prompt engineering, evaluation, production challenges | 2026-04-05 |
-| skills/skills/thatguysizemore/agent-config/SKILL.md at main | OpenClaw skill for modifying agent context files, workflows for file identification, state checking, change drafting | 2026-04-05 |
-| LLM Wiki | Source note for the LLM Wiki pattern; see Meta/LLM Wiki Pattern for the main page | 2026-04-05 |
+| A practical guide to building agents | Agent deployment bottleneck is organizational trust gap, not capability; product moat is trust infrastructure (audit, escalation, rollback) | 2026-04-05 |
+| Agent Development Kit (ADK) | ADK's hidden production advantage: evaluation of execution trajectories is first-class, not bolted on; choose frameworks by failure-mode visibility | 2026-04-05 |
+| Context Engineering | Multi-agent orchestration is an information routing problem; inter-agent context contracts determine reliability more than task division | 2026-04-05 |
+| Effective context engineering for AI agents | Context rot means long-running agents need forgetting strategies; compaction (structured notes over raw history) is the correct architecture | 2026-04-05 |
+| How and when to build multi-agent systems | Multi-agent demos use read tasks because write-task failure modes are invisible; read/write ratio is the primary complexity filter | 2026-04-05 |
+| How we built our multi-agent research system | The dominant production challenge is stateful error recovery (distributed systems), not AI; reliability infrastructure is the durable moat | 2026-04-05 |
+| skills/skills/thatguysizemore/agent-config/SKILL.md at main | Agent config files accumulate drift without architectural review; CLAUDE.md needs lint cycles, not just growth | 2026-04-05 |
+| LLM Wiki | Wiki pattern only compounds if LLM owns bookkeeping; every manual correction not written back to CLAUDE.md breaks the mechanism | 2026-04-05 |
 | Test source-ingestor skill | Validation source note for the ingest workflow, ensuring page updates, index sync, and logging are correct | 2026-04-05 |
 
 ## Meta

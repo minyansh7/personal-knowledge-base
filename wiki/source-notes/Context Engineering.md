@@ -4,15 +4,21 @@ last_updated: 2026-04-05
 sources_count: 1
 ---
 
-# Overview
+# Core Insight
 
-"Context Engineering" from LangChain outlines context engineering as the process of providing optimal information in agents' context windows. It introduces strategies—write, select, compress, isolate—for managing context in multi-agent systems and complex workflows.
+Multi-agent orchestration is fundamentally an *information routing problem*, not a task delegation problem — the bottleneck isn't which agent does what but what context flows between them, in what form, at what point in the workflow.
 
-# Key Insights
+## Why It Matters to Minyan
 
-- **Context as Foundation**: Agents require precise context for task execution; context engineering fills windows with relevant info at each step.
-- **Strategies for Multi-Agent Orchestration**: Write (generate new context), select (choose data), compress (summarize), isolate (separate concerns)—essential for maintaining coherence in collaborative systems.
-- **Performance Enhancement**: Optimizes agent trajectories, addressing context limitations in ambiguous, unstructured scenarios.
+Designing a multi-agent product means designing the inter-agent context handoff schema before designing the agents themselves. Production failures in multi-agent systems are almost always information failures at handoffs — missing context, malformed state, truncated history — not reasoning failures within individual agents.
+
+## What Changes
+
+When evaluating or building multi-agent architectures, ask "what is the context contract between agents?" before "how are tasks divided?" The former determines reliability; the latter is implementation detail.
+
+## What It Contradicts
+
+[[Synthesis/Multi-Agent Patterns]] frames orchestration as task division and pattern selection (manager vs. decentralized). This source says the real architectural decision is the information contract, which is orthogonal to the org-chart framing and more predictive of production success.
 
 # Connections
 
@@ -22,5 +28,11 @@ sources_count: 1
 
 # Actions
 
-- Apply context strategies in agent prototyping.
-- Evaluate context engineering for orchestration efficiency.
+- In any multi-agent design, specify inter-agent context contracts (what is passed, what is compressed, what is discarded) before writing agent prompts.
+
+<details>
+<summary>Structure Notes</summary>
+
+LangChain's framework defines four context operations: write (generate new context for downstream agents), select (retrieve relevant data from memory/tools), compress (summarize to fit context windows), isolate (separate concerns across agents or subagents). Presented as the core engineering discipline for multi-agent reliability.
+
+</details>

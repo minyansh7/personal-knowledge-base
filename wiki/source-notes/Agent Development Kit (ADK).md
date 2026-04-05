@@ -4,24 +4,36 @@ last_updated: 2026-04-05
 sources_count: 1
 ---
 
-# Overview
+# Core Insight
 
-"Agent Development Kit (ADK)" from Google is an overview of ADK, a framework for building and deploying AI agents. It highlights ADK's flexibility, multi-agent support, tool ecosystem, deployment options, evaluation, and safety features, with getting-started guides for multiple languages.
+ADK makes evaluation of agent execution trajectories a first-class feature alongside building — signaling that Google's team discovered agent failure modes are systematic and repeatable enough to warrant structured testing from day one, not ad-hoc debugging after the fact.
 
-# Key Insights
+## Why It Matters to Minyan
 
-- **Practical Tool for Multi-Agent Systems**: ADK enables modular development of multi-agent architectures, using orchestration patterns like sequential, parallel, and LLM-driven routing. It supports composing specialized agents for complex workflows, treating agent development like software engineering.
-- **Safety and Security Focus**: Emphasizes building trustworthy agents with security patterns, human input support, self-healing logic, and evaluation of execution trajectories. Includes guardrails for safe deployment in production.
-- **Ecosystem and Deployment**: Offers rich tools (pre-built, custom, integrations) and deployment flexibility (local, Vertex AI, Cloud Run, Docker), making it suitable for scalable enterprise applications.
+When choosing a framework for anything intended for production, ADK has a hidden advantage: its evaluation tooling was designed in from the start. Other frameworks require bolting on evaluation separately, which means you discover failure modes late and expensively.
+
+## What Changes
+
+Don't evaluate frameworks by feature list. Evaluate by what failure-mode visibility they provide from the start. The invisible costs of agent deployment are in production failures, not initial build time.
+
+## What It Contradicts
+
+[[Synthesis/Multi-Agent Patterns]] and [[Markets/AI Agents]] treat ADK as equivalent to other orchestration frameworks (comparing sequential/parallel/LLM-routing patterns). This source suggests ADK has a structural production advantage that feature comparisons don't capture.
 
 # Connections
 
 - [[Markets/AI Agents]] - ADK as a key framework in the agent ecosystem.
 - [[Synthesis/Multi-Agent Patterns]] - Orchestration examples.
-- [[source-notes/Context Engineering]] - Related agent optimization strategies.
 - [[Opportunities/AI Agent Deployments]] - Deployment capabilities.
 
 # Actions
 
-- Evaluate ADK for prototyping multi-agent systems.
-- Implement safety features from ADK in agent projects.
+- When prototyping agents, use ADK's evaluation tooling from the first sprint — before you think you need it.
+- If comparing frameworks, weight production observability and evaluation features heavily, not just API ergonomics.
+
+<details>
+<summary>Structure Notes</summary>
+
+ADK provides flexible orchestration (sequential, parallel, LLM-driven routing), rich tool ecosystems (pre-built, custom, third-party integrations), and deployment options (local, Vertex AI, Cloud Run, Docker). Safety features include built-in guardrails, human input support, self-healing logic, and evaluation of execution trajectories. Getting-started guides available for Python and Java.
+
+</details>
