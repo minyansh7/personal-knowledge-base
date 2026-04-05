@@ -1,7 +1,7 @@
 ---
 tags: [markets, ai, agents]
 last_updated: 2026-04-05
-sources_count: 2
+sources_count: 3
 ---
 
 # Overview
@@ -12,6 +12,7 @@ AI agents represent a transformative market opportunity, enabling autonomous wor
 
 - **Core Characteristics**: Agents independently manage multi-step workflows, using tools for external actions and operating within guardrails. They excel where rules-based systems fail, such as fraud analysis or customer service.
 - **Implementation Tools**: ADK (Agent Development Kit) is a key framework for developing multi-agent systems, offering flexible orchestration (sequential, parallel, LLM-driven), rich tool ecosystems, and deployment options (local, cloud). It emphasizes safety and security through built-in guardrails, evaluation, and self-healing logic.
+- **Context Engineering for Optimization**: Context engineering ensures agents receive the right information in context windows, using strategies like write (generate new context), select (choose relevant data), compress (summarize), and isolate (separate concerns). Critical for multi-agent orchestration to maintain coherence and efficiency.
 - **Market Applications**: In ecommerce, agents automate refund approvals, vendor reviews, and order management. In health, they process insurance claims, triage patients, and handle unstructured medical data. Opportunities include scaling these for enterprise deployments, reducing maintenance costs for brittle rules.
 - **Strategic Importance**: Agents drive efficiency in high-stakes sectors, with guardrails ensuring safety. Multi-agent patterns enable collaborative AI systems, mimicking team dynamics for complex tasks. ADK facilitates rapid prototyping and secure deployment.
 

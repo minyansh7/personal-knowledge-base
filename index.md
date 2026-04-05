@@ -41,9 +41,10 @@ Main catalog of pages in the wiki.
 |------|---------|--------------|
 | A practical guide to building agents | Comprehensive guide to AI agents | 2026-04-05 |
 | Agent Development Kit (ADK) | Framework for building AI agents | 2026-04-05 |
+| Context Engineering | Strategies for agent context management | 2026-04-05 |
 
 ## Synthesis
 
 | Page | Summary | Last Updated |
 |------|---------|--------------|
-| Multi-Agent Patterns | Orchestration frameworks for collaboration | 2026-04-05 |
+| Multi-Agent Patterns | Orchestration frameworks and context strategies for collaboration | 2026-04-05 |
