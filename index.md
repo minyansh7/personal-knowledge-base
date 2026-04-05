@@ -17,7 +17,7 @@ Main catalog of pages in the wiki.
 
 | Page | Summary | Last Updated |
 |------|---------|--------------|
-| AI Agents | Core concepts, frameworks, and market applications | 2026-04-05 |
+| AI Agents | AI agents market with ADK framework, advanced context engineering (system prompts, tools, just-in-time retrieval, long-horizon compaction), applications in ecommerce/health, strategic importance | 2026-04-05 |
 
 ## Projects
 
@@ -42,6 +42,7 @@ Main catalog of pages in the wiki.
 | A practical guide to building agents | Comprehensive guide to AI agents | 2026-04-05 |
 | Agent Development Kit (ADK) | Framework for building AI agents | 2026-04-05 |
 | Context Engineering | Strategies for agent context management | 2026-04-05 |
+| Effective context engineering for AI agents | Anthropic's guide on context engineering for agents, strategies for managing context state, just-in-time retrieval, long-horizon techniques | 2026-04-05 |
 
 ## Synthesis
 

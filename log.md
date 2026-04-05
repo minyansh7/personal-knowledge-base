@@ -11,3 +11,5 @@ Every log entry must start with: ## [YYYY-MM-DD] type | Title
 ## [2026-04-05] ingest | Agent Development Kit (ADK)
 
 ## [2026-04-05] ingest | Context Engineering
+
+## [2026-04-05] ingest | Effective context engineering for AI agents
