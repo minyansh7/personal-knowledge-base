@@ -15,3 +15,5 @@ Every log entry must start with: ## [YYYY-MM-DD] type | Title
 ## [2026-04-05] ingest | Effective context engineering for AI agents
 
 ## [2026-04-05] ingest | How and when to build multi-agent systems
+
+## [2026-04-05] ingest | How we built our multi-agent research system

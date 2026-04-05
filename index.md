@@ -44,9 +44,10 @@ Main catalog of pages in the wiki.
 | Context Engineering | Strategies for agent context management | 2026-04-05 |
 | Effective context engineering for AI agents | Anthropic's guide on context engineering for agents, strategies for managing context state, just-in-time retrieval, long-horizon techniques | 2026-04-05 |
 | How and when to build multi-agent systems | LangChain synthesis on multi-agent systems, context engineering, read/write tasks, production challenges | 2026-04-05 |
+| How we built our multi-agent research system | Anthropic's detailed post on multi-agent research system architecture, prompt engineering, evaluation, production challenges | 2026-04-05 |
 
 ## Synthesis
 
 | Page | Summary | Last Updated |
 |------|---------|--------------|
-| Multi-Agent Patterns | Orchestration frameworks, context strategies, read vs. write tasks, production challenges for collaborative AI systems | 2026-04-05 |
+| Multi-Agent Patterns | Orchestration frameworks, context strategies, read/write tasks, production challenges, orchestrator-worker architecture for collaborative AI systems | 2026-04-05 |
