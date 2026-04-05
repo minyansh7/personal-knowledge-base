@@ -52,7 +52,7 @@ Additional types:
 ### Ingest
 1. User adds source to `/raw/`.
 1.5. Validate source completeness and readability before proceeding. Check for truncated content or missing sections; if incomplete, note limitations and proceed with available content.
-2. Read the source, extract key information, discuss takeaways with user for guidance. For single-topic sources, update only the top 1-2 most relevant wiki pages; avoid associating with unrelated topics.
+2. Read the source and extract key information. **Do not discuss takeaways or ask for guidance — Minyan prefers silent ingests.** Process the source, file the pages, then report what was done. For single-topic sources, update only the top 1-2 most relevant wiki pages; avoid associating with unrelated topics.
 2.5. Read existing relevant wiki pages to determine if updates suffice or new pages are needed.
 3. Create/update relevant wiki pages (e.g., update entity pages, revise summaries, note contradictions).
 When updating existing pages, integrate new insights by adding bullets under relevant sections (e.g., Key Insights) or revising overviews/actions; avoid full rewrites unless synthesizing contradictions. For updates, prefer adding 1-2 bullets under existing sections; revise overviews only if core thesis changes.
