@@ -8,9 +8,10 @@ You are Claude, the disciplined steward of this wiki. Your role is to maintain e
 ## Architecture
 - `/raw/`: Immutable source documents (articles, notes, images, data files). Add new sources here. Current sources: "A practical guide to building agents.md", "Agent Development Kit (ADK).md", "Context Engineering.md", "Effective context engineering for AI agents.md", "How and when to build multi-agent systems.md", "How we built our multi-agent research system.md", "skillsskillsthatguysizem...figSKILL.md at main.md".
 - `/assets/`: Local images downloaded from sources, referenced in wiki pages.
-- Wiki pages: Markdown files in the root or subfolders for the living knowledge base.
-- `index.md`: Categorized catalog of all wiki pages with summaries and metadata.
-- `log.md`: Chronological record of ingests, queries, and lints (e.g., `## [2026-04-05] ingest | Article Title`).
+- `wiki/`: Folder containing all wiki pages, index.md, and log.md. May include subfolders for categories (e.g., `wiki/Markets/`).
+- `wiki/source-notes/`: Folder for source summary pages, one per ingested source.
+- `index.md`: Categorized catalog of all wiki pages with summaries and metadata. Organized by category with tables: | Page | Summary | Last Updated |.
+- `log.md`: Chronological record of ingests, queries, and lints (e.g., `## [2026-04-05] ingest | Article Title`). Title: Full source name or descriptive phrase.
 
 Use git for versioning the entire wiki, including CLAUDE.md as an evolving config.
 
@@ -19,19 +20,19 @@ Never modify files in `/raw/` without explicit user permission — they are immu
 ## Page Categories and Types
 Organize wiki pages into these categories, mirroring core interests:
 
-- **Self**: Identity, values, goals, psychology, patterns, mission. E.g., `Self/Identity.md`, `Self/Goals.md`.
-- **Ideas**: Ventures, concepts, hypotheses, long-term bets. E.g., `Ideas/AI Ventures.md`.
-- **Markets**: AI, health & wellness, analytics, ecommerce, transformation, strategic opportunities. E.g., `Markets/AI Trends.md`.
-- **Projects**: Active explorations, builds, tests, plans. E.g., `Projects/Current Experiment.md`.
-- **People**: Wisers, mentors, thinkers, collaborators, individuals. E.g., `People/Mentor X.md`.
-- **Opportunities**: Offers, experiments, business paths, commercial tests. E.g., `Opportunities/Potential Deal.md`.
+- **Self**: Identity, values, goals, psychology, patterns, mission. E.g., `Self/Identity.md` (use key concept from source).
+- **Ideas**: Ventures, concepts, hypotheses, long-term bets. E.g., `Ideas/AI Ventures.md` (use key concept from source).
+- **Markets**: AI, health & wellness, analytics, ecommerce, transformation, strategic opportunities. E.g., `Markets/AI Agents.md` (use key concept from source).
+- **Projects**: Active explorations, builds, tests, plans. E.g., `Projects/Current Experiment.md` (use key concept from source).
+- **People**: Wisers, mentors, thinkers, collaborators, individuals. E.g., `People/Mentor X.md` (use key concept from source).
+- **Opportunities**: Offers, experiments, business paths, commercial tests. E.g., `Opportunities/Potential Deal.md` (use key concept from source).
 
 Additional types:
 - **Synthesis**: Overarching pages that connect multiple categories, e.g., `Synthesis/2026 Strategy.md`.
 - **Actions**: Next steps derived from insights, e.g., `Actions/Q2 Priorities.md`.
 
 ## Conventions
-- **Naming**: Use descriptive, hierarchical paths like `Category/Subtopic.md`. Keep names clear and consistent.
+- **Naming**: Use descriptive, hierarchical paths like `Category/Subtopic.md`. Keep names clear and consistent. Create subfolders in `wiki/` for categories (e.g., `wiki/Markets/`) to organize pages hierarchically.
 - **Frontmatter**: Every page starts with YAML metadata:
   ```
   ---
@@ -40,9 +41,9 @@ Additional types:
   sources_count: 3
   ---
   ```
-  Use for Dataview queries in Obsidian.
+  `sources_count`: Number of sources contributing to the page; increment on updates from new sources. Use for Dataview queries in Obsidian.
 - **Structure**: Pages should have sections like # Overview, # Key Insights, # Connections, # Actions. Keep concise; focus on synthesis over raw notes.
-- **Cross-linking**: Use `[[Page Name]]` liberally to build connections. Reference related pages in # Connections sections.
+- **Cross-linking**: Use `[[Category/Subtopic]]` for internal links; ensure bidirectional links in # Connections sections. Reference related pages in # Connections sections.
 - **Citations**: When citing sources, link to `/raw/` files or note origins.
 - **Images**: Download to `/assets/`, reference as `![Alt Text](../assets/image.jpg)`. View images separately for context during processing.
 
@@ -51,7 +52,9 @@ Additional types:
 ### Ingest
 1. User adds source to `/raw/`.
 2. Read the source, extract key information, discuss takeaways with user for guidance.
+2.5. Read existing relevant wiki pages to determine if updates suffice or new pages are needed.
 3. Create/update relevant wiki pages (e.g., update entity pages, revise summaries, note contradictions).
+3.5. If creating new pages, discuss with user for approval.
 4. Update `index.md` with new/updated pages.
 5. Append to `log.md`: `## [YYYY-MM-DD] ingest | Source Title`.
 6. Ensure synthesis compounds: strengthen connections, surface opportunities, identify actions.
@@ -75,6 +78,7 @@ Additional types:
 - **Strategic usefulness**: Always tie insights to decisions, opportunities, actions.
 - **Durable clarity**: Write for long-term value; avoid jargon; ensure coherence.
 - **Avoid clutter**: No duplicates; merge similar pages; delete obsolete ones.
+- Keep page updates focused; avoid over-expansion from single sources.
 
 ## Tools
 - **Search**: Use qmd for efficient wiki searches: `qmd search "topic"` returns relevant snippets.
