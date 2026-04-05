@@ -11,11 +11,13 @@ Main catalog of pages in the wiki.
 
 | Page | Summary | Last Updated |
 |------|---------|--------------|
+| AI Ventures | Strategic opportunities in agent development | 2026-04-05 |
 
 ## Markets
 
 | Page | Summary | Last Updated |
 |------|---------|--------------|
+| AI Agents | Core concepts and market applications | 2026-04-05 |
 
 ## Projects
 
@@ -31,8 +33,16 @@ Main catalog of pages in the wiki.
 
 | Page | Summary | Last Updated |
 |------|---------|--------------|
+| AI Agent Deployments | Commercial paths for agent solutions | 2026-04-05 |
 
 ## Source Notes
 
 | Page | Summary | Last Updated |
 |------|---------|--------------|
+| A practical guide to building agents | Comprehensive guide to AI agents | 2026-04-05 |
+
+## Synthesis
+
+| Page | Summary | Last Updated |
+|------|---------|--------------|
+| Multi-Agent Patterns | Orchestration frameworks for collaboration | 2026-04-05 |
