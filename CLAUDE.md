@@ -56,6 +56,25 @@ Additional types:
 2.5. Read existing relevant wiki pages to determine if updates suffice or new pages are needed.
 3. Create/update relevant wiki pages (e.g., update entity pages, revise summaries, note contradictions).
 When updating existing pages, integrate new insights by adding bullets under relevant sections (e.g., Key Insights) or revising overviews/actions; avoid full rewrites unless synthesizing contradictions. For updates, prefer adding 1-2 bullets under existing sections; revise overviews only if core thesis changes.
+**SYNTHESIS DEPTH RULES — these apply to every ingest without exception:**
+
+1. Never restate the document's structure or table of contents.
+   That is indexing, not synthesis.
+
+2. The test for a good insight:
+   Could someone guess this from the document's headings alone?
+   If yes, it is not an insight. It is a summary. Go deeper.
+
+3. Every source summary page must contain:
+   - ONE core non-obvious insight stated in a single sentence
+   - WHY that insight matters to Minyan specifically
+   - WHAT changes in how Minyan should think or act because of it
+   - WHAT it contradicts or challenges in the existing wiki
+
+4. The structural description (three layers, five steps, etc.)
+   goes in a collapsible section at the bottom labeled 'Structure Notes'.
+   It is reference material, not the insight.
+
 3.5. If creating new pages or making significant updates (e.g., adding new sections), discuss with user for approval.
 4. Update `index.md` with new/updated pages; revise summaries if new keywords or concepts are added. Revise summaries to include new keywords, keeping 1-2 sentences.
 4.5. Review and update connected pages (e.g., if updating Markets, check Ideas/Opportunities) for consistency.
