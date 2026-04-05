@@ -18,6 +18,7 @@ sources_count: 1
 
 - [[Markets/AI Agents]] - ADK as a key framework in the agent ecosystem.
 - [[Synthesis/Multi-Agent Patterns]] - Orchestration examples.
+- [[source-notes/Context Engineering]] - Related agent optimization strategies.
 - [[Opportunities/AI Agent Deployments]] - Deployment capabilities.
 
 # Actions

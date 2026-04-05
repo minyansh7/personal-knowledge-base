@@ -19,6 +19,7 @@ AI agent deployments offer commercial opportunities in automating complex workfl
 - [[Markets/AI Agents]] - Market context.
 - [[Ideas/AI Ventures]] - Venture alignment.
 - [[Synthesis/Multi-Agent Patterns]] - Implementation strategies.
+- [[source-notes/Agent Development Kit (ADK)]] - Framework details.
 
 # Actions
 

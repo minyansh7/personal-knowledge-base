@@ -18,6 +18,7 @@ sources_count: 1
 
 - [[Markets/AI Agents]] - Optimization techniques.
 - [[Synthesis/Multi-Agent Patterns]] - Context integration.
+- [[source-notes/Agent Development Kit (ADK)]] - Framework for implementing multi-agent systems.
 
 # Actions
 
