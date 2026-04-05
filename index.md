@@ -17,7 +17,7 @@ Main catalog of pages in the wiki.
 
 | Page | Summary | Last Updated |
 |------|---------|--------------|
-| AI Agents | Core concepts and market applications | 2026-04-05 |
+| AI Agents | Core concepts, frameworks, and market applications | 2026-04-05 |
 
 ## Projects
 
@@ -40,6 +40,7 @@ Main catalog of pages in the wiki.
 | Page | Summary | Last Updated |
 |------|---------|--------------|
 | A practical guide to building agents | Comprehensive guide to AI agents | 2026-04-05 |
+| Agent Development Kit (ADK) | Framework for building AI agents | 2026-04-05 |
 
 ## Synthesis
 
