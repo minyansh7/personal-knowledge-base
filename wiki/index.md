@@ -53,7 +53,7 @@ Main catalog of pages in the wiki.
 | How and when to build multi-agent systems | Multi-agent demos use read tasks because write-task failure modes are invisible; read/write ratio is the primary complexity filter | 2026-04-05 |
 | How we built our multi-agent research system | The dominant production challenge is stateful error recovery (distributed systems), not AI; reliability infrastructure is the durable moat | 2026-04-05 |
 | skills/skills/thatguysizemore/agent-config/SKILL.md at main | Agent config files accumulate drift without architectural review; CLAUDE.md needs lint cycles, not just growth | 2026-04-05 |
-| LLM Wiki | Wiki pattern only compounds if LLM owns bookkeeping; every manual correction not written back to CLAUDE.md breaks the mechanism | 2026-04-05 |
+| LLM Wiki | Wikis die from maintenance decay, not bad tooling; LLMs solve this by being infinitely patient at bookkeeping, not smarter at thinking | 2026-04-06 |
 | Test source-ingestor skill | Validation source note for the ingest workflow, ensuring page updates, index sync, and logging are correct | 2026-04-05 |
 
 ## Meta
