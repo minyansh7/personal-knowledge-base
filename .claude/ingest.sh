@@ -6,8 +6,8 @@
 set -euo pipefail
 
 WIKI_DIR="/Users/minyan/Minyan's Wiki"
-PYTHON_BIN="/usr/bin/env python3"
-INGEST_PY="$WIKI_DIR/.claude/ingest_openai.py"
+CLAUDE_BIN="/Users/minyan/.nvm/versions/node/v24.14.1/bin/claude"
+PROMPT_FILE="$WIKI_DIR/.claude/prompts/ingest.txt"
 LOG_FILE="$WIKI_DIR/.claude/watcher.log"
 INGEST_FILE="${1:-}"
 
@@ -40,19 +40,22 @@ if [[ "$INGEST_FILE" != "$WIKI_DIR/raw/"* ]]; then
   exit 0
 fi
 
-# ── Launch ingest ──────────────────────────────────────────────────────────────
+# ── Launch Claude ──────────────────────────────────────────────────────────────
 
 echo "[$(date '+%Y-%m-%d %H:%M')] START: $INGEST_FILE" >> "$LOG_FILE"
 
 cd "$WIKI_DIR"
 
-# OPENAI_API_KEY must be set in environment (loaded from macOS Keychain via ~/.zshrc)
-if [[ -z "${OPENAI_API_KEY:-}" ]]; then
-  OPENAI_API_KEY=$(security find-generic-password -a "openai" -s "OPENAI_API_KEY" -w 2>/dev/null || true)
-  export OPENAI_API_KEY
-fi
+export INGEST_FILE="$INGEST_FILE"
 
-python3 "$INGEST_PY" "$INGEST_FILE" >> "$LOG_FILE" 2>&1
+"$CLAUDE_BIN" \
+  --print \
+  --dangerously-skip-permissions \
+  "$(cat "$PROMPT_FILE")
+
+The file to ingest is: $INGEST_FILE" \
+  >> "$LOG_FILE" 2>&1
+
 EXIT_CODE=$?
 
 if [[ $EXIT_CODE -eq 0 ]]; then
