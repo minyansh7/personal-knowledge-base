@@ -1,4 +1,9 @@
-# CLAUDE.md — Schema for Minyan's Wiki
+# Personal Knowledge Base — Minyan's Wiki
+
+> One of many experiments. This one inspired by Andrej Karpathy's idea that
+> a wiki maintained by an LLM compounds knowledge in ways a human-maintained
+> one hardly sustains.
+> [Source](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
 
 ## Overview
 
