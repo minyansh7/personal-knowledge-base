@@ -11,10 +11,14 @@
             "id": "e5ef49f6402125a5",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "wiki/source-notes/skills skills thatguysizemore agent-config SKILL.md at main.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "skills skills thatguysizemore agent-config SKILL.md at main"
             }
           }
         ]
@@ -90,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "wiki/source-notes/skills skills thatguysizemore agent-config SKILL.md at main.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for skills skills thatguysizemore agent-config SKILL.md at main"
             }
           },
           {
@@ -150,15 +155,17 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "wiki/source-notes/skills skills thatguysizemore agent-config SKILL.md at main.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of skills skills thatguysizemore agent-config SKILL.md at main"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -178,50 +185,52 @@
   },
   "active": "e5ef49f6402125a5",
   "lastOpenFiles": [
+    "wiki/Findings/Context as Maintenance.md",
+    "wiki/Findings/Context Engineering.md",
+    "wiki/Findings/Multi-Agent Systems.md",
+    "wiki/Findings",
+    "wiki/source-notes/Agent Development Kit (ADK).md",
+    "wiki/source-notes/A practical guide to building agents.md",
+    "wiki/Meta/LLM Wiki Pattern.md",
+    "wiki/source-notes/LLM Wiki.md",
+    "wiki/Ideas/Multi-Agent Patterns.md",
+    "wiki/Ideas/Agent Context Engineering.md",
+    "wiki/Ideas/AI Agents.md",
+    "wiki/Ideas/AI Ventures.md",
+    "wiki/Opportunities/AI Agent Deployments.md",
+    "wiki/Actions/Q2 2026.md",
+    "wiki/index.md",
+    "wiki/log.md",
+    "raw/articles/Untitled.base",
+    "raw/articles/Untitled.canvas",
+    "raw/articles/Harrison Chase.md",
+    "wiki/source-notes/skills skills thatguysizemore agent-config SKILL.md at main.md",
+    "raw/articles/skillsskillsthatguysizemoreagent-configSKILL.md at main.md",
     "raw/articles/Context Engineering.md",
-    "raw/articles/Context Engineering/Context Engineering.md",
+    "raw/articles/Agent Development Kit (ADK).md",
+    "raw/articles/A practical guide to building agents.md",
+    "assets/1198befc0b33726c45692ac40f764022f4de1bf2-4584x2579.webp",
+    "assets/0442fe138158e84ffce92bed1624dd09f37ac46f-2292x1288.webp",
+    "assets/43abe7e54b56a891e74a8542944dfbd33f07f49c-1000x1000.svg",
+    "assets/09a90e0aca54859553e93c18683e7fd33ff16d4c-2654x2148.webp",
+    "assets/3bde53c9578d74f6e05c3e515e20b910c5a8c20a-4584x4584.webp",
+    "wiki/Opportunities/AI Agents Opportunities.md",
+    "raw/articles/LLM Wiki.md",
+    "raw/skillsskillsthatguysizemoreagent-configSKILL.md at main.md",
+    "skillsskillsthatguysizemoreagent-configSKILL.md at main.md",
+    "wiki/source-notes/How we built our multi-agent research system.md",
     "image-6.png",
     "image-10.png",
     "image-9.png",
     "image-8.png",
     "image.png",
-    "image-7.png",
-    "image-5.png",
-    "image-4.png",
-    "image-3.png",
-    "image-2.png",
     "raw/articles/Context Engineering",
-    "raw/articles/How and when to build multi-agent systems.md",
-    "raw/articles/skillsskillsthatguysizemoreagent-configSKILL.md at main.md",
-    "raw/articles/How we built our multi-agent research system.md",
-    "raw/articles/Effective context engineering for AI agents.md",
-    "raw/articles/Agent Development Kit (ADK).md",
-    "raw/articles/A practical guide to building agents.md",
-    "CLAUDE.md",
-    "wiki/source-notes/skills skills thatguysizemore agent-config SKILL.md at main.md",
-    "wiki/source-notes/How we built our multi-agent research system.md",
-    "wiki/source-notes/How and when to build multi-agent systems.md",
-    "wiki/source-notes/Effective context engineering for AI agents.md",
-    "wiki/source-notes/Context Engineering.md",
-    "raw/Untitled.md",
-    "wiki/source-notes/Agent Development Kit (ADK).md",
-    "wiki/Synthesis/Multi-Agent Patterns.md",
     "wiki/Synthesis",
-    "wiki/Opportunities/AI Agent Deployments.md",
     "wiki/Opportunities",
-    "wiki/Ideas/AI Ventures.md",
     "wiki/Ideas",
-    "wiki/Markets/AI Agents.md",
     "wiki/Markets",
-    "wiki/source-notes/A practical guide to building agents.md",
     "wiki/source-notes",
     "wiki",
-    "raw/transcripts",
-    "raw/articles",
-    "raw/inbox",
-    "log.md",
-    "index.md",
-    "assets/skillsskillsthatguysizemoreagent-configSKILL.md at main.md",
-    "assets/How we built our multi-agent research system.md"
+    "raw/transcripts"
   ]
 }

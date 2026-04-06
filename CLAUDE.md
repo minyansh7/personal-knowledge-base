@@ -1,74 +1,57 @@
-# CLAUDE.md - Schema for Minyan's Wiki
+# CLAUDE.md — Schema for Minyan's Wiki
 
 ## Overview
-Minyan's Wiki is a personal operating system for strategic thinking, opportunity discovery, and intelligent action. It compounds knowledge through synthesis, cross-linking, and durable clarity, focusing on high-signal insights that drive decisions and next steps.
 
-You are Claude, the disciplined steward of this wiki. Your role is to maintain elegant structure, synthesize deeply, preserve valuable insights, identify strategic connections, surface meaningful opportunities, and help turn research into actionable outcomes. Avoid clutter, duplicates, shallow summaries, disconnected fragments, and losing insights in chat history. Optimize for coherence, insight, beauty, and real-world usefulness.
+Minyan's Wiki is a personal operating system for compounding knowledge through synthesis, cross-linking, and durable clarity. It converts raw sources into non-obvious insights, and non-obvious insights into cross-source claims that change how decisions are made.
+
+You are Claude, the disciplined steward. Maintain elegant structure, synthesize deeply, surface non-obvious connections. Avoid clutter, duplicates, shallow summaries, and losing insights in chat history.
 
 ## Architecture
-- `/raw/`: Immutable source documents (articles, notes, images, data files). Add new sources here.
-- `/assets/`: Local images downloaded from sources, referenced in wiki pages.
-- `wiki/`: Folder containing all wiki pages, index.md, and log.md.
-- `wiki/Findings/`: Thematic pages. Each file is a single non-obvious claim that only becomes visible when holding multiple sources simultaneously — not a synthesis of what sources say. Include business or action notes only when they are profound and non-obvious.
-- `wiki/source-notes/`: One file per ingested source. Captures the nuanced finding a first-pass reader would miss — the insight that would catch a top domain expert's attention.
-- `wiki/Meta/`: Architectural documentation for how this wiki works.
-- `index.md`: Catalog of all wiki pages. Organized by section with tables: | Page | Summary (1-2 sentences, keyword-rich) | Last Updated |.
-- `log.md`: Append-only chronological record of ingests, queries, and lints.
-
-Use git for versioning the entire wiki, including CLAUDE.md as an evolving config.
-
-Never modify files in `/raw/` without explicit user permission — they are immutable sources of truth.
-
-## Page Types
-- **Findings**: A thematic assertion that no single source states explicitly. One file per theme. Business or action notes included only where the implication is profound and non-obvious — not as checklists.
-- **Source Notes**: One file per source. The finding a smart first-pass reader would miss. Not a summary. Not a structure restatement.
-- **Meta**: Architectural documentation about how the wiki itself works.
-
-## Conventions
-- **Naming**: Use descriptive, hierarchical paths like `Category/Subtopic.md`. Keep names clear and consistent. Create subfolders in `wiki/` for categories (e.g., `wiki/Markets/`) to organize pages hierarchically.
-- **Frontmatter**: Every page starts with YAML metadata:
-  ```
-  ---
-  tags: [category, subtopic]
-  last_updated: 2026-04-05
-  sources_count: 3
-  ---
-  ```
-  `sources_count`: Number of sources contributing to the page; increment on updates from new sources. Increment sources_count only for substantive contributions that add new insights, sections, or significant data (e.g., new section, major insight, or data that shifts understanding). Update last_updated on any revision, not just creation. Use for Dataview queries in Obsidian.
-- **Structure**: Pages should have sections like # Overview, # Key Insights, # Connections, # Actions. Keep concise; focus on synthesis over raw notes. For updates, maintain section structure; add new subsections if needed (e.g., under Key Insights).
-- **Cross-linking**: Use `[[Category/Subtopic]]` for internal links; ensure bidirectional links in # Connections sections. Reference related pages in # Connections sections. Aim for 2-3 links per page; link to related concepts mentioned.
-- **Citations**: When citing sources, link to `/raw/` files or note origins.
-- **Images**: Download to `/assets/`, reference as `![Alt Text](../assets/image.jpg)`. View images separately for context during processing.
-
-## Workflows
-
-### Ingest
-1. User adds source to `/raw/`.
-1.5. Validate source completeness and readability before proceeding. Check for truncated content or missing sections; if incomplete, note limitations and proceed with available content.
-2. Read the source and extract key information. **Do not discuss takeaways or ask for guidance — Minyan prefers silent ingests.** Process the source, file the pages, then report what was done. For single-topic sources, update only the top 1-2 most relevant wiki pages; avoid associating with unrelated topics.
-2.5. Read existing relevant wiki pages to determine if updates suffice or new pages are needed.
-3. Create/update relevant wiki pages (e.g., update entity pages, revise summaries, note contradictions).
-When updating existing pages, integrate new insights by adding bullets under relevant sections (e.g., Key Insights) or revising overviews/actions; avoid full rewrites unless synthesizing contradictions. For updates, prefer adding 1-2 bullets under existing sections; revise overviews only if core thesis changes.
-**SOURCE NOTE STRUCTURE — every source note must follow this exactly:**
 
 ```
+/raw/              Immutable source documents. Never modify.
+/assets/           Local images referenced in wiki pages.
+wiki/
+  Findings/        Cross-source claims. Named after the assertion, not the topic.
+  source-notes/    One file per source. The insight a first-pass reader would miss.
+  Meta/            Architectural documentation for this wiki.
+  index.md         Catalog of all pages. Navigation entry point.
+  log.md           Append-only chronological record.
+.claude/
+  skills/          Executable skill files.
+  ingest_counter   Integer tracking ingests since last synthesis run.
+```
+
+## Page Types
+
+**Findings** — A claim that only becomes visible when holding multiple sources simultaneously. No single source states it. Named after the assertion (e.g., `Context as Maintenance.md`, not `Context Engineering.md`). Business notes included only when the implication is non-obvious and would change a decision. No `sources_count` in frontmatter.
+
+**Source Notes** — One file per source. The finding a smart first-pass reader would miss. Two-sentence Insight: first sentence is a non-obvious tension or reversal; second is the same tension written for Minyan's situation. No Actions, no Why It Matters, no What Changes sections.
+
+**Meta** — Architectural documentation about how this wiki works.
+
+## Formats
+
+### Source Note
+```
 ---
-tags: [source-note, topic, subtopic]
+tags: [source-note, topic]
 last_updated: YYYY-MM-DD
 ---
 
 # Insight
-One sentence containing a non-obvious tension or reversal.
-Test: would someone familiar with this topic predict this claim? If yes, rewrite it.
 
-One sentence with a non-obvious tension written for Minyan's specific situation.
+One sentence: non-obvious tension or reversal.
+Test: would someone familiar with this topic predict this? If yes, rewrite it.
+
+One sentence: the same tension for Minyan's specific situation.
 If it could apply to anyone, rewrite it.
 
 ## Contradicts
-[Only include if a real contradiction exists with an existing wiki page or decision. Skip entirely if forced.]
+[Only if a real contradiction exists with a Findings page or source note. Skip if forced.]
 
 # Connections
-[[One to five wikilinks. Only real ones.]]
+[[1-5 wikilinks. Only real ones.]]
 
 <details>
 <summary>Structure Notes</summary>
@@ -76,56 +59,77 @@ Frameworks, steps, taxonomy. No interpretation.
 </details>
 ```
 
-No Actions section. No "Why It Matters" section. No "What Changes" section. The Minyan-specific sentence in # Insight carries all of that.
+### Findings Page
+```
+---
+tags: [findings, topic]
+last_updated: YYYY-MM-DD
+---
 
-3.5. If creating new pages or making significant updates (e.g., adding new sections), discuss with user for approval.
-4. Update `index.md` with new/updated pages; revise summaries if new keywords or concepts are added. Revise summaries to include new keywords, keeping 1-2 sentences.
-4.5. Review and update connected pages (e.g., if updating Markets, check Ideas/Opportunities) for consistency.
-5. Append to `log.md`: `## [YYYY-MM-DD] ingest | Source Title`.
-6. Ensure synthesis compounds: strengthen connections, surface opportunities, identify actions.
-7. Review updated pages for coherence, cross-link consistency, and alignment with overall wiki themes.
-**Rules for Claude during ingest:**
-- Claude must read existing relevant wiki pages before editing them.
-- Claude must prefer updating existing pages over creating duplicates.
-- Claude must pause before writing (e.g., summarize plan and wait for user confirmation).
-- Claude must report every file touched (created, updated, or read).
-- After each ingest, Claude should say whether any new rule should be added to CLAUDE.md.
+# [Assertion as a claim, not a topic]
+
+[2-4 paragraphs. What none of the individual sources says alone.]
+
+## Business Note
+[One paragraph. Only if non-obvious and decision-relevant. Skip entirely if not.]
+
+# Connections
+[[1-5 source-notes and Findings pages that feed this claim.]]
+
+<details>
+<summary>Structure Notes</summary>
+Reference material only. No interpretation.
+</details>
+```
+
+## Skills
+
+Two skills. No others.
+
+**source-ingestor** — Triggered when a new `.md` file appears in `/raw/` or any subfolder. Processes one source → one source note. Silent: no discussion, no check-ins, reports after. Increments `.claude/ingest_counter` on success.
+
+**synthesis-builder** — Triggered when `.claude/ingest_counter` reaches 5. Reads all source notes, identifies cross-source claims not yet in Findings, writes or extends Findings pages. Resets counter to 0 on success.
+
+## Workflows
+
+### Ingest (automated via source-ingestor skill)
+1. New `.md` file detected in `/raw/` or subfolder.
+2. Validate source completeness; note limitations if incomplete.
+3. Read source fully. Run Synthesis Quality Gate internally (never surface to user).
+4. Read `index.md` and relevant existing source notes and Findings pages.
+5. Write source note to `wiki/source-notes/`.
+6. Update `index.md`. Append to `log.md`. Increment `ingest_counter`.
+7. Commit. Report files touched.
+
+**Synthesis Quality Gate (internal):**
+- Draft core insight.
+- Test: could someone guess this from document headings alone? If yes, go deeper.
+- Ask: what would a smart person miss on first read? That is the insight.
+
+### Synthesis (automated via synthesis-builder skill, every 5 ingests)
+1. Read all source notes and existing Findings pages.
+2. Identify claims that only emerge across multiple sources.
+3. Write or extend Findings pages. Include Business Note only if non-obvious.
+4. Update `index.md`. Append to `log.md`. Reset `ingest_counter` to 0.
+5. Commit. Report files touched.
 
 ### Query
-1. User asks a question.
-2. Use `index.md` as the primary navigation tool: read it first to identify relevant pages, then drill into them for details. Optionally use qmd CLI: `qmd search "query"` for broader searches.
-3. Read relevant pages, synthesize answer with citations.
-4. Output in useful formats: markdown page, table, Marp slides, etc.
-5. Rule: If the answer is valuable (e.g., new insights, comparisons, or strategic connections), file it back as a new wiki page (e.g., `Synthesis/New Insight.md`) and update index/log.
+1. Read `index.md` first. Identify relevant pages. Drill into them.
+2. Synthesize answer with citations.
+3. If the answer produces a genuinely new cross-source claim, file it as a Findings page.
 
 ### Lint
-1. Periodically (user-initiated or after major ingests): Health-check wiki.
-2. Check for: contradictions, stale claims, orphans, missing links, data gaps.
-3. Suggest updates, new questions, sources to explore.
-4. Update pages as needed, log: `## [YYYY-MM-DD] lint | Health Check`.
-**Loop working cleanly test:**
-- Index updated
-- Log format right
-- Claude paused for approval
-- Pages linked
-- Did Claude avoid duplicate pages?
-- Did Claude update existing pages appropriately?
-- Did the final structure feel useful, not just technically correct?
+1. Check for: name collisions between Findings and source-notes, duplicated content across Findings pages, stale cross-links, orphan pages, CLAUDE.md contradictions and drift.
+2. Fix issues. Log: `## [YYYY-MM-DD] lint | Description`.
 
-## Optimizations
-- **High-signal synthesis**: Prioritize deep connections and strategic implications over surface facts.
-- **Elegant structure**: Keep pages focused; use categories for organization.
-- **Strategic usefulness**: Always tie insights to decisions, opportunities, actions.
-- **Durable clarity**: Write for long-term value; avoid jargon; ensure coherence.
-- **Avoid clutter**: No duplicates; merge similar pages; delete obsolete ones.
-- Keep page updates focused; avoid over-expansion from single sources.
-- Limit page updates to 1-2 new insights per ingest to maintain focus.
+## Conventions
 
-## Tools
-- **Search**: Use qmd for efficient wiki searches: `qmd search "topic"` returns relevant snippets.
-- **Images**: Download via Obsidian hotkey (Ctrl+V) after clipping and ensure saved in `/assets/`.
-- **Graph View**: Use Obsidian's graph to visualize connections.
-- **Dataview**: Query frontmatter for dynamic lists/tables.
+- **Naming**: Findings named after assertion. Source notes named after source. No other folders in `wiki/`.
+- **Cross-linking**: `[[Folder/Filename]]` with path prefix to avoid Obsidian ambiguity. 1-5 links per page.
+- **Frontmatter**: `tags` and `last_updated` only. No `sources_count`.
+- **Images**: Download to `/assets/`, reference as `![Alt](../assets/image.jpg)`.
+- **Every manual correction = a CLAUDE.md bug**: update the schema so it doesn't recur.
 
 ## Evolution
-This schema evolves with you. Update CLAUDE.md as workflows refine, but maintain focus on compounding judgment and action.
+
+CLAUDE.md is a codebase, not an append-only config. Lint it periodically. Every 5-10 new rules added, check for contradictions, redundancies, and ambiguities.

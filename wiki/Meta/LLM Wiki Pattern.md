@@ -29,6 +29,6 @@ Three operations:
 
 # Connections
 
-- [[Markets/AI Agents]] - LLM agent patterns underlying this architecture.
-- [[Synthesis/Multi-Agent Patterns]] - Could extend to multi-agent wiki maintenance.
+- [[AI Agents]] - LLM agent patterns underlying this architecture.
+- [[Multi-Agent Patterns]] - Could extend to multi-agent wiki maintenance.
 - [[Actions/Q2 2026]] - Current next steps include feeding personal content and linting CLAUDE.md.
