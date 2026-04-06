@@ -1,10 +1,5 @@
 # Personal Knowledge Base — Minyan's Wiki
 
-> One of many experiments. This one inspired by Andrej Karpathy's idea that
-> a wiki maintained by an LLM compounds knowledge in ways a human-maintained
-> one hardly sustains.
-> [Source](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
-
 ## Overview
 
 Minyan's Wiki is a personal operating system for compounding knowledge through synthesis, cross-linking, and durable clarity. It converts raw sources into non-obvious insights, and non-obvious insights into cross-source claims that change how decisions are made.
