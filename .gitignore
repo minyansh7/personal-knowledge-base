@@ -15,6 +15,9 @@
 # macOS
 .DS_Store
 
+# Obsidian
+.obsidian/
+
 # Wiki content
 /assets/
 /raw/
