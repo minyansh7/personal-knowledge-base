@@ -8,3 +8,10 @@
 
 # macOS
 .DS_Store
+
+# Wiki content
+/assets/
+/raw/
+/wiki/
+wiki/index.md
+wiki/log.md
