@@ -12,6 +12,9 @@
 # Skills
 .claude/skills/
 
+# Prompts
+.claude/prompts/
+
 # macOS
 .DS_Store
 
