@@ -68,7 +68,7 @@ If it could apply to anyone, rewrite it.
 [Only include if a real contradiction exists with an existing wiki page or decision. Skip entirely if forced.]
 
 # Connections
-[[One to three wikilinks. Only real ones.]]
+[[One to five wikilinks. Only real ones.]]
 
 <details>
 <summary>Structure Notes</summary>
