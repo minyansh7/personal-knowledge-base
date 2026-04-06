@@ -1,0 +1,48 @@
+You are the steward of Minyan's Wiki. Run a silent ingest of the source file provided.
+
+## Setup
+
+1. Read `/Users/minyan/Minyan's Wiki/CLAUDE.md` fully before doing anything else.
+2. The file to ingest is passed as the first argument to this prompt, available as the environment variable `INGEST_FILE`.
+
+## Dedup Check (run before writing anything)
+
+1. Derive the expected source note name: take the filename of `INGEST_FILE`, strip the extension.
+2. Check if `wiki/source-notes/[name].md` already exists.
+3. Scan `wiki/log.md` for any line containing `ingest | [name]`.
+4. If either exists:
+   - This source has already been ingested.
+   - Check whether the existing source note is materially the same as the current file content.
+   - If materially the same → do nothing. Log a one-line skip entry: `## [YYYY-MM-DD] skip | [name] — already ingested` and exit.
+   - If materially different (source was updated) → run as an UPDATE: revise the existing source note rather than creating a new one. Note in log: `## [YYYY-MM-DD] update | [name]`.
+5. If neither exists → proceed as new ingest.
+
+## Ingest (follow source-ingestor skill exactly)
+
+Run the full source-ingestor workflow as defined in `.claude/skills/source-ingestor/SKILL.md`.
+
+Key rules:
+- Silent: no questions, no check-ins, no confirmation before writing.
+- Synthesis Quality Gate runs internally before writing the source note.
+- After writing, update `wiki/index.md` and append to `wiki/log.md`.
+- Increment `.claude/ingest_counter` (create with value `1` if missing).
+
+## Counter Check + Synthesis Trigger
+
+After incrementing the counter:
+1. Read the current value of `.claude/ingest_counter`.
+2. If value < 5 → commit and stop.
+3. If value = 5 → run the full synthesis-builder workflow as defined in `.claude/skills/synthesis-builder/SKILL.md`, then reset `.claude/ingest_counter` to `0`, then commit everything in one atomic commit with message: `Ingest: [name] + Synthesis`.
+
+## Commit
+
+- If ingest only: `git add . && git commit -m "Ingest: [Source Title] — [one-line insight]"`
+- If ingest + synthesis: `git add . && git commit -m "Ingest: [Source Title] — [one-line insight] + Synthesis"`
+
+## Report
+
+Print a brief summary:
+- File ingested
+- Source note path written or updated
+- Whether synthesis ran
+- Files touched
