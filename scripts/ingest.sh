@@ -7,8 +7,8 @@ set -euo pipefail
 
 WIKI_DIR="/Users/minyan/Minyan's Wiki"
 CLAUDE_BIN="/Users/minyan/.nvm/versions/node/v24.14.1/bin/claude"
-PROMPT_FILE="$WIKI_DIR/.claude/prompts/ingest.txt"
-LOG_FILE="$WIKI_DIR/.claude/watcher.log"
+PROMPT_FILE="$WIKI_DIR/scripts/ingest.txt"
+LOG_FILE="$WIKI_DIR/scripts/watcher.log"
 INGEST_FILE="${1:-}"
 
 # ── Validate input ─────────────────────────────────────────────────────────────

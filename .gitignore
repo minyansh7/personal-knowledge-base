@@ -3,8 +3,9 @@
 .env.*
 *.env
 
-# Claude logs
+# Logs
 .claude/watcher.log
+scripts/watcher.log
 
 # macOS
 .DS_Store

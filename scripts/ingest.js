@@ -1,8 +1,8 @@
 // ingest.js — Minyan's Wiki QuickAdd macro
-// Place this file in your vault and point QuickAdd's Script step to it.
-// Calls .claude/ingest.sh with the currently open file's absolute path.
+// Place this file in scripts/ and point QuickAdd's Script step to scripts/ingest.js
+// Calls scripts/ingest.sh with the currently open file's absolute path.
 
-const INGEST_SCRIPT = "/Users/minyan/Minyan's Wiki/.claude/ingest.sh";
+const INGEST_SCRIPT = "/Users/minyan/Minyan's Wiki/scripts/ingest.sh";
 
 module.exports = async (params) => {
   const file = params.app.workspace.getActiveFile();
@@ -26,7 +26,7 @@ module.exports = async (params) => {
 
   exec(`bash "${INGEST_SCRIPT}" "${filePath}"`, (error, stdout, stderr) => {
     if (error) {
-      new Notice(`Ingest failed. Check .claude/watcher.log for details.`);
+      new Notice(`Ingest failed. Check scripts/watcher.log for details.`);
       console.error("[ingest.js] error:", error.message);
       console.error("[ingest.js] stderr:", stderr);
     } else {
