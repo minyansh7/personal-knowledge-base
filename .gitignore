@@ -5,7 +5,9 @@
 
 # Logs
 .claude/watcher.log
-scripts/watcher.log
+
+# Scripts
+/scripts/
 
 # macOS
 .DS_Store
