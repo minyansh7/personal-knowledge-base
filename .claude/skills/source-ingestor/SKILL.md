@@ -28,9 +28,12 @@ Do not proceed until the insight passes this test.
 6. **Write source note** in `wiki/source-notes/[Source Title].md` using the format below.
 7. **Update `wiki/index.md`**: Add entry under Source Notes. Summary must reflect the insight, not the topic.
 8. **Append to `wiki/log.md`**: `## [YYYY-MM-DD] ingest | Source Title`
-9. **Increment `wiki/.claude/ingest_counter`** by 1 (create file with value `1` if it doesn't exist).
-10. **Commit**: `git add . && git commit -m "Ingest: [Source Title] — [one-line insight]"`
-11. **Report**: List all files read, created, or updated.
+9. **Increment `.claude/ingest_counter`** by 1 (create file with value `1` if it doesn't exist).
+10. **Check counter**: Read the current value of `.claude/ingest_counter`.
+    - If value is less than 5 → proceed to step 11.
+    - If value equals 5 → run the full synthesis-builder workflow now (inline, same session), then reset `.claude/ingest_counter` to `0`. Synthesis runs before the commit so all changes land in one atomic commit.
+11. **Commit**: `git add . && git commit -m "Ingest: [Source Title] — [one-line insight]"` (if synthesis also ran, append ` + Synthesis` to the commit message).
+12. **Report**: List all files read, created, or updated. If synthesis ran, note it explicitly.
 
 ## Source Note Format
 
@@ -75,3 +78,4 @@ Frameworks, steps, taxonomy from the source. No interpretation.
 - Read: `/raw/[subfolder]/Source.md`, `wiki/index.md`, relevant `wiki/source-notes/*.md`, `wiki/Findings/*.md`
 - Created: `wiki/source-notes/Source Title.md`
 - Updated: `wiki/index.md`, `wiki/log.md`, `.claude/ingest_counter`
+- Updated (if synthesis triggered): `wiki/Findings/*.md`, `wiki/index.md` (revised)
