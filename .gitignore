@@ -9,6 +9,9 @@
 # Scripts
 /scripts/
 
+# Skills
+.claude/skills/
+
 # macOS
 .DS_Store
 
