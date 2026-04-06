@@ -49,24 +49,34 @@ Never modify files in `/raw/` without explicit user permission — they are immu
 2.5. Read existing relevant wiki pages to determine if updates suffice or new pages are needed.
 3. Create/update relevant wiki pages (e.g., update entity pages, revise summaries, note contradictions).
 When updating existing pages, integrate new insights by adding bullets under relevant sections (e.g., Key Insights) or revising overviews/actions; avoid full rewrites unless synthesizing contradictions. For updates, prefer adding 1-2 bullets under existing sections; revise overviews only if core thesis changes.
-**SYNTHESIS DEPTH RULES — these apply to every ingest without exception:**
+**SOURCE NOTE STRUCTURE — every source note must follow this exactly:**
 
-1. Never restate the document's structure or table of contents.
-   That is indexing, not synthesis.
+```
+---
+tags: [source-note, topic, subtopic]
+last_updated: YYYY-MM-DD
+---
 
-2. The test for a good insight:
-   Could someone guess this from the document's headings alone?
-   If yes, it is not an insight. It is a summary. Go deeper.
+# Insight
+One sentence containing a non-obvious tension or reversal.
+Test: would someone familiar with this topic predict this claim? If yes, rewrite it.
 
-3. Every source summary page must contain:
-   - ONE core non-obvious insight stated in a single sentence
-   - WHY that insight matters to Minyan specifically
-   - WHAT changes in how Minyan should think or act because of it
-   - WHAT it contradicts or challenges in the existing wiki
+One sentence with a non-obvious tension written for Minyan's specific situation.
+If it could apply to anyone, rewrite it.
 
-4. The structural description (three layers, five steps, etc.)
-   goes in a collapsible section at the bottom labeled 'Structure Notes'.
-   It is reference material, not the insight.
+## Contradicts
+[Only include if a real contradiction exists with an existing wiki page or decision. Skip entirely if forced.]
+
+# Connections
+[[One to three wikilinks. Only real ones.]]
+
+<details>
+<summary>Structure Notes</summary>
+Frameworks, steps, taxonomy. No interpretation.
+</details>
+```
+
+No Actions section. No "Why It Matters" section. No "What Changes" section. The Minyan-specific sentence in # Insight carries all of that.
 
 3.5. If creating new pages or making significant updates (e.g., adding new sections), discuss with user for approval.
 4. Update `index.md` with new/updated pages; revise summaries if new keywords or concepts are added. Revise summaries to include new keywords, keeping 1-2 sentences.

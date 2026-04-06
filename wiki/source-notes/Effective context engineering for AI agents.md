@@ -1,39 +1,26 @@
 ---
-tags: [source-summary, context-engineering, ai-agents]
-last_updated: 2026-04-05
-sources_count: 1
+tags: [source-note, ai, agents, context]
+last_updated: 2026-04-06
 ---
 
-# Core Insight
+# Insight
 
-"Context rot" — Anthropic's term for accumulated conversation history that actively degrades agent performance over time — means long-running agents need explicit *forgetting strategies*, not just retrieval strategies; more context is not better context.
+More context is not better context — accumulated conversation history actively degrades LLM attention quality past a threshold, meaning long-running agents need explicit forgetting strategies, not richer retrieval.
 
-## Why It Matters to Minyan
+This wiki's index.md and log.md are not navigation aids — they are the compaction layer that prevents context rot from accumulating across Minyan's ingest sessions.
 
-This wiki's LLM maintenance workflow is a long-running agent use case. Every ingest session that carries over raw prior conversation is accumulating rot. The right design isn't giving Claude full history — it's compacting history into structured notes (index, log, source notes) before each session, which is already what the wiki schema does.
+## Contradicts
 
-## What Changes
-
-Design every long-horizon agent workflow with a compaction step as a first-class operation from the start, not as an optimization to add when performance degrades. The compaction architecture should be specified before the agent logic.
-
-## What It Contradicts
-
-The common assumption that "full context = best results" is directly contradicted: Anthropic finds that accumulated context actively degrades attention quality past a threshold. The wiki's own architecture (index.md + log.md as compressed state) is the correct response — but this justification is missing from CLAUDE.md.
+The widespread assumption that "full context = best results" is directly inverted: Anthropic finds that accumulated context degrades attention quality. Most RAG and retrieval architectures optimize for adding more context; the correct optimization is disciplined removal.
 
 # Connections
 
-- [[Markets/AI Agents]] - Core agent building strategies.
-- [[Synthesis/Multi-Agent Patterns]] - Long-horizon and multi-agent techniques.
-- [[Meta/LLM Wiki Pattern]] - This wiki's compaction architecture directly implements these principles.
-
-# Actions
-
-- Add a note to CLAUDE.md explaining why index.md and log.md exist as compressed state (context rot prevention), so future sessions understand the design intent.
-- When building any agent product with sessions longer than ~10 turns, spec the compaction strategy before the agent prompts.
+- [[Findings/Context Engineering]]
+- [[Meta/LLM Wiki Pattern]]
 
 <details>
 <summary>Structure Notes</summary>
 
-Anthropic distinguishes context engineering from prompt engineering: context engineering is about holistic state management, not just instruction writing. Covers: system prompt design (clear altitude, organized sections), tool design (efficient, self-contained, unambiguous), few-shot examples (diverse, canonical), just-in-time retrieval (dynamic loading via tools, progressive disclosure), and long-horizon techniques (compaction via summarization, structured note-taking, multi-agent architectures to distribute context load).
+Distinguishes context engineering from prompt engineering: context engineering manages holistic state, not just instructions. Covers: system prompt design (clear altitude, organized sections), tool design (efficient, self-contained, unambiguous), few-shot examples (diverse, canonical), just-in-time retrieval (dynamic loading via tools, progressive disclosure), long-horizon techniques (compaction via summarization, structured note-taking, multi-agent architectures to distribute context load).
 
 </details>

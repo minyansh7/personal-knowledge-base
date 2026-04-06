@@ -1,38 +1,26 @@
 ---
-tags: [source, ai, agents, context]
-last_updated: 2026-04-05
-sources_count: 1
+tags: [source-note, ai, agents, context]
+last_updated: 2026-04-06
 ---
 
-# Core Insight
+# Insight
 
-Multi-agent orchestration is fundamentally an *information routing problem*, not a task delegation problem — the bottleneck isn't which agent does what but what context flows between them, in what form, at what point in the workflow.
+Multi-agent systems don't fail because individual agents reason poorly — they fail at handoffs, where context is missing, malformed, or truncated, which is an information architecture problem that precedes all agent logic.
 
-## Why It Matters to Minyan
+Before Minyan writes a single agent prompt in any multi-agent design, the inter-agent context contract — what passes, what compresses, what drops — must be specified first.
 
-Designing a multi-agent product means designing the inter-agent context handoff schema before designing the agents themselves. Production failures in multi-agent systems are almost always information failures at handoffs — missing context, malformed state, truncated history — not reasoning failures within individual agents.
+## Contradicts
 
-## What Changes
-
-When evaluating or building multi-agent architectures, ask "what is the context contract between agents?" before "how are tasks divided?" The former determines reliability; the latter is implementation detail.
-
-## What It Contradicts
-
-[[Synthesis/Multi-Agent Patterns]] frames orchestration as task division and pattern selection (manager vs. decentralized). This source says the real architectural decision is the information contract, which is orthogonal to the org-chart framing and more predictive of production success.
+The common framing of multi-agent design as task division (who does what) is downstream of the real architectural decision: what information flows between agents and in what form. [[Findings/Multi-Agent Systems]] addresses the task-division question; this source says that question is secondary.
 
 # Connections
 
-- [[Markets/AI Agents]] - Optimization techniques.
-- [[Synthesis/Multi-Agent Patterns]] - Context integration.
-- [[source-notes/Agent Development Kit (ADK)]] - Framework for implementing multi-agent systems.
-
-# Actions
-
-- In any multi-agent design, specify inter-agent context contracts (what is passed, what is compressed, what is discarded) before writing agent prompts.
+- [[Findings/Context Engineering]]
+- [[Findings/Multi-Agent Systems]]
 
 <details>
 <summary>Structure Notes</summary>
 
-LangChain's framework defines four context operations: write (generate new context for downstream agents), select (retrieve relevant data from memory/tools), compress (summarize to fit context windows), isolate (separate concerns across agents or subagents). Presented as the core engineering discipline for multi-agent reliability.
+Four context operations: write (generate new context for downstream agents), select (retrieve relevant data), compress (summarize to fit context windows), isolate (separate concerns across agents). Presented as the core engineering discipline for multi-agent reliability.
 
 </details>
