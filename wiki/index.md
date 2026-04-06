@@ -1,46 +1,19 @@
 # Index
 
-Main catalog of pages in the wiki.
+Main catalog of wiki pages.
 
-## Actions
-
-| Page | Summary | Last Updated |
-|------|---------|--------------|
-| Q2 2026 | Next steps derived from full wiki synthesis: trust gap evaluation, read/write ratio filter, compaction-first design, CLAUDE.md lint cycle, personal content gaps | 2026-04-05 |
-
-## Self
+## Findings
 
 | Page | Summary | Last Updated |
 |------|---------|--------------|
+| Multi-Agent Systems | Going multi-agent is a coordination cost decision, not a capability one; the read/write asymmetry is the primary predictor of production success | 2026-04-06 |
+| Context Engineering | Context degrades over time whether you act on it or not; compaction and inter-agent contracts are maintenance problems, not setup problems | 2026-04-06 |
 
-## Ideas
-
-| Page | Summary | Last Updated |
-|------|---------|--------------|
-| AI Ventures | Strategic opportunities in agent development | 2026-04-05 |
-
-## Markets
+## Meta
 
 | Page | Summary | Last Updated |
 |------|---------|--------------|
-| AI Agents | AI agents market with ADK framework, advanced context engineering, applications in ecommerce/health, strategic importance | 2026-04-05 |
-
-## Projects
-
-| Page | Summary | Last Updated |
-|------|---------|--------------|
-
-## People
-
-| Page | Summary | Last Updated |
-|------|---------|--------------|
-
-## Opportunities
-
-| Page | Summary | Last Updated |
-|------|---------|--------------|
-| AI Agent Deployments | Commercial paths for agent solutions | 2026-04-05 |
-| AI Agents Opportunities | Concrete opportunities in ecommerce, health, research platforms, and agent ventures | 2026-04-05 |
+| LLM Wiki Pattern | How this wiki works: LLMs solve the maintenance motivation problem that kills every personal knowledge system | 2026-04-06 |
 
 ## Source Notes
 
@@ -54,17 +27,3 @@ Main catalog of pages in the wiki.
 | How we built our multi-agent research system | The dominant production challenge is stateful error recovery (distributed systems), not AI; reliability infrastructure is the durable moat | 2026-04-05 |
 | skills/skills/thatguysizemore/agent-config/SKILL.md at main | Agent config files accumulate drift without architectural review; CLAUDE.md needs lint cycles, not just growth | 2026-04-05 |
 | LLM Wiki | Wikis die from maintenance decay, not bad tooling; LLMs solve this by being infinitely patient at bookkeeping, not smarter at thinking | 2026-04-06 |
-| Test source-ingestor skill | Validation source note for the ingest workflow, ensuring page updates, index sync, and logging are correct | 2026-04-05 |
-
-## Meta
-
-| Page | Summary | Last Updated |
-|------|---------|--------------|
-| LLM Wiki Pattern | Architectural documentation for this wiki: three-layer pattern, operations (ingest/query/lint), indexing, and LLM-as-maintainer rationale | 2026-04-05 |
-
-## Synthesis
-
-| Page | Summary | Last Updated |
-|------|---------|--------------|
-| Multi-Agent Patterns | Orchestration frameworks, context strategies, read/write tasks, production challenges, orchestrator-worker architecture for collaborative AI systems | 2026-04-05 |
-| Agent Context Engineering | Synthesis of context engineering patterns for agents, multi-agent coordination, long-horizon compaction, and production reliability | 2026-04-05 |

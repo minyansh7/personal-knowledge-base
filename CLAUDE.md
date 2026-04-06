@@ -6,30 +6,23 @@ Minyan's Wiki is a personal operating system for strategic thinking, opportunity
 You are Claude, the disciplined steward of this wiki. Your role is to maintain elegant structure, synthesize deeply, preserve valuable insights, identify strategic connections, surface meaningful opportunities, and help turn research into actionable outcomes. Avoid clutter, duplicates, shallow summaries, disconnected fragments, and losing insights in chat history. Optimize for coherence, insight, beauty, and real-world usefulness.
 
 ## Architecture
-- `/raw/`: Immutable source documents (articles, notes, images, data files). Add new sources here. Current sources: "A practical guide to building agents.md", "Agent Development Kit (ADK).md", "Context Engineering.md", "Effective context engineering for AI agents.md", "How and when to build multi-agent systems.md", "How we built our multi-agent research system.md", "skillsskillsthatguysizem...figSKILL.md at main.md".
+- `/raw/`: Immutable source documents (articles, notes, images, data files). Add new sources here.
 - `/assets/`: Local images downloaded from sources, referenced in wiki pages.
-- `wiki/`: Folder containing all wiki pages, index.md, and log.md. May include subfolders for categories (e.g., `wiki/Markets/`).
-- `wiki/source-notes/`: Folder for source summary pages, one per ingested source.
-- `index.md`: Categorized catalog of all wiki pages with summaries and metadata. Organized by category with tables: | Page | Summary (1-2 sentences, concise and keyword-rich) | Last Updated |.
-- `log.md`: Chronological record of ingests, queries, and lints (e.g., `## [2026-04-05] ingest | Article Title`). Title: Full source name or descriptive phrase.
+- `wiki/`: Folder containing all wiki pages, index.md, and log.md.
+- `wiki/Findings/`: Thematic pages. Each file is a single non-obvious claim that only becomes visible when holding multiple sources simultaneously — not a synthesis of what sources say. Include business or action notes only when they are profound and non-obvious.
+- `wiki/source-notes/`: One file per ingested source. Captures the nuanced finding a first-pass reader would miss — the insight that would catch a top domain expert's attention.
+- `wiki/Meta/`: Architectural documentation for how this wiki works.
+- `index.md`: Catalog of all wiki pages. Organized by section with tables: | Page | Summary (1-2 sentences, keyword-rich) | Last Updated |.
+- `log.md`: Append-only chronological record of ingests, queries, and lints.
 
 Use git for versioning the entire wiki, including CLAUDE.md as an evolving config.
 
 Never modify files in `/raw/` without explicit user permission — they are immutable sources of truth.
 
-## Page Categories and Types
-Organize wiki pages into these categories, mirroring core interests:
-
-- **Self**: Identity, values, goals, psychology, patterns, mission. E.g., `Self/Identity.md` (use key concept from source).
-- **Ideas**: Ventures, concepts, hypotheses, long-term bets. E.g., `Ideas/AI Ventures.md` (use key concept from source).
-- **Markets**: AI, health & wellness, analytics, ecommerce, transformation, strategic opportunities. E.g., `Markets/AI Agents.md` (use key concept from source).
-- **Projects**: Active explorations, builds, tests, plans. E.g., `Projects/Current Experiment.md` (use key concept from source).
-- **People**: Wisers, mentors, thinkers, collaborators, individuals. E.g., `People/Mentor X.md` (use key concept from source).
-- **Opportunities**: Offers, experiments, business paths, commercial tests. E.g., `Opportunities/Potential Deal.md` (use key concept from source).
-
-Additional types:
-- **Synthesis**: Overarching pages that connect multiple categories, e.g., `Synthesis/2026 Strategy.md`.
-- **Actions**: Next steps derived from insights, e.g., `Actions/Q2 Priorities.md`.
+## Page Types
+- **Findings**: A thematic assertion that no single source states explicitly. One file per theme. Business or action notes included only where the implication is profound and non-obvious — not as checklists.
+- **Source Notes**: One file per source. The finding a smart first-pass reader would miss. Not a summary. Not a structure restatement.
+- **Meta**: Architectural documentation about how the wiki itself works.
 
 ## Conventions
 - **Naming**: Use descriptive, hierarchical paths like `Category/Subtopic.md`. Keep names clear and consistent. Create subfolders in `wiki/` for categories (e.g., `wiki/Markets/`) to organize pages hierarchically.
