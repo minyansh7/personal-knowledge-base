@@ -197,8 +197,15 @@ Uses qmd for retrieval — precise semantic search over the compiled wiki layer,
 2. Read full content of the top results with `qmd get qmd://wiki/<filepath>`.
 3. For broad topics, run `qmd search "<topic>" -c wiki --files` to get a ranked file list, then read selectively.
 4. Synthesize answer with citations to pages read.
-5. If the answer produces a genuinely new cross-source claim:
-   - File it as a Findings page using the Findings format. Run the three synthesis gates before writing.
+5. After synthesizing, evaluate internally before ending the session:
+   - Does this connect 3+ existing pages into something not stated anywhere in the wiki?
+   - Does it surface a contradiction worth naming?
+   - Does it produce a reusable principle or framework?
+   - One-year test: would this insight be worth remembering in a year?
+   If yes to any of the first three AND the one-year test — propose filing to the user.
+   If no to all — answer stays in chat. Do not file unprompted.
+6. If user confirms filing:
+   - Write a Findings page using the Findings format. Run the three synthesis gates before writing.
    - Update `wiki/index.md`. Append to `wiki/log.md`: `## [YYYY-MM-DD] query | Claim Title`.
    - Commit: `git add . && git commit -m "Query: [Claim Title] — [one-line insight]"`
    - Run `qmd update --collection wiki && qmd embed` to index the new page.
