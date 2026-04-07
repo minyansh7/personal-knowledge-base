@@ -93,7 +93,7 @@ Silent: no questions, no check-ins, no confirmation before writing. Process and 
 3. Scan `wiki/log.md` for any line containing `ingest | [name]`.
 4. If either exists:
    - If content is materially the same → do nothing. Append to `wiki/log.md`: `## [YYYY-MM-DD] skip | [name] — already ingested`. Commit: `git add . && git commit -m "Skip: [name] — already ingested"`. Stop.
-   - If content is materially different → UPDATE: rewrite the existing source note, update `last_updated` in frontmatter, revise the summary in `wiki/index.md`. Append to `wiki/log.md`: `## [YYYY-MM-DD] update | [name]`. Commit: `git add . && git commit -m "Update: [name] — [one-line change]"`. Stop.
+   - If content is materially different → UPDATE: rewrite the existing source note, update `last_updated` in frontmatter, revise the summary in `wiki/index.md`. Append to `wiki/log.md`: `## [YYYY-MM-DD] update | [name]`. Increment `scripts/ingest_counter` by 1. Then run Step 5 (synthesis trigger check). Commit: `git add . && git commit -m "Update: [name] — [one-line change]"`. Stop.
 5. If neither exists → proceed as new ingest.
 
 **Step 2 — Read and validate**
@@ -116,7 +116,7 @@ Silent: no questions, no check-ins, no confirmation before writing. Process and 
 **Step 5 — Synthesis trigger**
 1. Read current value of `scripts/ingest_counter`.
 2. If value < 5 → proceed to commit.
-3. If value = 5 → run the Synthesis workflow below inline, then reset `scripts/ingest_counter` to `0`, then commit everything in one atomic commit: `git add . && git commit -m "Ingest + Synthesis: [one-line cross-source claim from synthesis]"`. Stop.
+3. If value >= 5 → run the Synthesis workflow below inline, then reset `scripts/ingest_counter` to `0`, then commit everything in one atomic commit: `git add . && git commit -m "Ingest + Synthesis: [one-line cross-source claim from synthesis]"`. Stop.
 
 **Step 6 — Commit**
 `git add . && git commit -m "Ingest: [Source Title] — [one-line insight]"`
@@ -176,6 +176,16 @@ After passing all three gates: does this claim have a non-obvious business impli
 **Step 6 — Commit (standalone only)**
 If synthesis was triggered manually rather than inline from Ingest:
 `git add . && git commit -m "Synthesis: [Theme] — [one-line claim]"`
+
+---
+
+### Synthesize (manual trigger)
+
+Run on demand regardless of counter value. Use when you want synthesis now, not at the next counter threshold.
+
+1. Run the full Synthesis workflow above (Steps 1–5).
+2. Reset `scripts/ingest_counter` to `0`.
+3. Commit: `git add . && git commit -m "Synthesis: [one-line cross-source claim]"`
 
 ---
 
