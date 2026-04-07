@@ -116,7 +116,7 @@ Silent: no questions, no check-ins, no confirmation before writing. Process and 
 **Step 5 — Synthesis trigger**
 1. Read current value of `scripts/ingest_counter`.
 2. If value < 5 → proceed to commit.
-3. If value = 5 → run the Synthesis workflow below inline, then reset `scripts/ingest_counter` to `0`, then commit everything in one atomic commit: `git add . && git commit -m "Ingest: [Source Title] — [one-line insight] + Synthesis"`. Stop.
+3. If value = 5 → run the Synthesis workflow below inline, then reset `scripts/ingest_counter` to `0`, then commit everything in one atomic commit: `git add . && git commit -m "Ingest + Synthesis: [one-line cross-source claim from synthesis]"`. Stop.
 
 **Step 6 — Commit**
 `git add . && git commit -m "Ingest: [Source Title] — [one-line insight]"`
