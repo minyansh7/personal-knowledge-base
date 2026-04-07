@@ -140,23 +140,23 @@ What assertion only emerges from reading multiple source notes together? Test: c
 
 **Step 3 — For each new claim, run three gates before writing anything**
 
-*Gate 3 — Claim uniqueness (create vs. extend)*
+*Gate A — Claim uniqueness (create vs. extend)*
 1. State the new claim in one sentence.
 2. Read all existing Findings page titles and opening paragraphs.
 3. Does any existing Findings page already own this claim, even partially?
-   - Yes → extend that page. Proceed to Gate 1.
+   - Yes → extend that page. Proceed to Gate B.
    - No → create `wiki/Findings/[Assertion as filename].md`. Name after the claim, not the topic.
 
-*Gate 1 — Significance (append vs. discard)*
+*Gate B — Significance (append vs. discard)*
 1. State the new paragraph in one sentence.
 2. Read every existing paragraph in the target Findings page.
 3. Does this sentence say something that could not be inferred from what is already written?
    - No → discard.
    - Yes → does it belong to this page's assertion, or does it establish a different claim?
-     - Same territory → proceed to Gate 2.
-     - Different claim → return to Gate 3, treat as new claim.
+     - Same territory → proceed to Gate C.
+     - Different claim → return to Gate A, treat as new claim.
 
-*Gate 2 — Format lock (before any write)*
+*Gate C — Format lock (before any write)*
 Verify the draft contains only these sections:
 ```
 # [Assertion title]        required
@@ -178,13 +178,17 @@ After passing all three gates: does this claim have a non-obvious business impli
 ### Query
 1. Read `index.md` first. Identify relevant pages. Drill into them.
 2. Synthesize answer with citations.
-3. If the answer produces a genuinely new cross-source claim, file it as a Findings page.
+3. If the answer produces a genuinely new cross-source claim:
+   - File it as a Findings page using the Findings format. Run the three synthesis gates before writing.
+   - Update `wiki/index.md`. Append to `wiki/log.md`: `## [YYYY-MM-DD] query | Claim Title`.
+   - Commit: `git add . && git commit -m "Query: [Claim Title] — [one-line insight]"`
 
 ---
 
 ### Lint
 1. Check for: name collisions between Findings and source-notes, duplicated content across Findings pages, stale cross-links, orphan pages, CLAUDE.md contradictions and drift.
-2. Fix issues. Log: `## [YYYY-MM-DD] lint | Description`.
+2. Fix issues. Append to `wiki/log.md`: `## [YYYY-MM-DD] lint | Description`.
+3. Commit: `git add . && git commit -m "Lint: [Description]"`
 
 ## Conventions
 
