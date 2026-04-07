@@ -25,7 +25,7 @@ scripts/
 
 **Findings** — A claim that only becomes visible when holding multiple sources simultaneously. No single source states it. Named after the assertion (e.g., `Context as Maintenance.md`, not `Context Engineering.md`). Business notes included only when the implication is non-obvious and would change a decision. No `sources_count` in frontmatter.
 
-**Source Notes** — One file per source. The finding a smart first-pass reader would miss. Two-sentence Insight: first sentence is a non-obvious tension or reversal; second is the same tension written for Minyan's situation. No Actions, no Why It Matters, no What Changes sections.
+**Source Notes** — One file per source. The finding a smart first-pass reader would miss. See Source Note format below.
 
 **Meta** — Architectural documentation about how this wiki works.
 
@@ -92,8 +92,8 @@ Silent: no questions, no check-ins, no confirmation before writing. Process and 
 2. Check if `wiki/source-notes/[name].md` already exists.
 3. Scan `wiki/log.md` for any line containing `ingest | [name]`.
 4. If either exists:
-   - If content is materially the same → do nothing. Log: `## [YYYY-MM-DD] skip | [name] — already ingested`. Stop.
-   - If content is materially different → run as UPDATE: revise existing source note. Log: `## [YYYY-MM-DD] update | [name]`.
+   - If content is materially the same → do nothing. Append to `wiki/log.md`: `## [YYYY-MM-DD] skip | [name] — already ingested`. Commit: `git add . && git commit -m "Skip: [name] — already ingested"`. Stop.
+   - If content is materially different → UPDATE: rewrite the existing source note, update `last_updated` in frontmatter, revise the summary in `wiki/index.md`. Append to `wiki/log.md`: `## [YYYY-MM-DD] update | [name]`. Commit: `git add . && git commit -m "Update: [name] — [one-line change]"`. Stop.
 5. If neither exists → proceed as new ingest.
 
 **Step 2 — Read and validate**
@@ -145,7 +145,7 @@ What assertion only emerges from reading multiple source notes together? Test: c
 2. Read all existing Findings page titles and opening paragraphs.
 3. Does any existing Findings page already own this claim, even partially?
    - Yes → extend that page. Proceed to Gate B.
-   - No → create `wiki/Findings/[Assertion as filename].md`. Name after the claim, not the topic.
+   - No → create `wiki/Findings/[Assertion as filename].md`. Name after the claim, not the topic. Proceed to Gate B.
 
 *Gate B — Significance (append vs. discard)*
 1. State the new paragraph in one sentence.
@@ -172,6 +172,10 @@ After passing all three gates: does this claim have a non-obvious business impli
 **Step 5 — Update index and log**
 1. Update `wiki/index.md`: add or revise Findings entry. Summary must reflect the claim, not the topic.
 2. Append to `wiki/log.md`: `## [YYYY-MM-DD] synthesis | Theme Name`.
+
+**Step 6 — Commit (standalone only)**
+If synthesis was triggered manually rather than inline from Ingest:
+`git add . && git commit -m "Synthesis: [Theme] — [one-line claim]"`
 
 ---
 
