@@ -14,11 +14,11 @@ You are Claude, the disciplined steward. Maintain elegant structure, synthesize 
 wiki/
   Findings/        Cross-source claims. Named after the assertion, not the topic.
   source-notes/    One file per source. The insight a first-pass reader would miss.
-  Meta/            Architectural documentation for this wiki.
+  Meta/            Architectural documentation about how this wiki works.
   index.md         Catalog of all pages. Navigation entry point.
   log.md           Append-only chronological record.
 scripts/
-  ingest_counter   Integer tracking ingests since last synthesis run.
+  ingest_counter   Synthesis fires when this reaches 5. Reset to 0 after each synthesis.
 ```
 
 ## Page Types
@@ -27,7 +27,7 @@ scripts/
 
 **Source Notes** — One file per source. The finding a smart first-pass reader would miss. See Source Note format below.
 
-**Meta** — Architectural documentation about how this wiki works.
+**Meta** — Architectural documentation about how this wiki works. See Meta format below.
 
 ## Formats
 
@@ -81,6 +81,22 @@ Reference material only. No interpretation.
 </details>
 ```
 
+### Meta Page
+```
+---
+tags: [meta]
+last_updated: YYYY-MM-DD
+---
+
+# [What this documents]
+
+[1-3 paragraphs. How this part of the wiki works, why it is structured this way,
+and what to watch for when maintaining it. No source summaries, no insights.]
+
+# Connections
+[[1-3 links to pages this document governs or relates to.]]
+```
+
 ## Workflows
 
 ### Ingest
@@ -92,7 +108,7 @@ Silent: no questions, no check-ins, no confirmation before writing. Process and 
 2. Check if `wiki/source-notes/[name].md` already exists.
 3. Scan `wiki/log.md` for any line containing `ingest | [name]`.
 4. If either exists:
-   - If content is materially the same → do nothing. Append to `wiki/log.md`: `## [YYYY-MM-DD] skip | [name] — already ingested`. Commit: `git add . && git commit -m "Skip: [name] — already ingested"`. Stop.
+   - If content is materially the same → do nothing. Append to `wiki/log.md`: `## [YYYY-MM-DD] skip | [name] — already ingested`. Stop. No commit.
    - If content is materially different → UPDATE: rewrite the existing source note, update `last_updated` in frontmatter, revise the summary in `wiki/index.md`. Append to `wiki/log.md`: `## [YYYY-MM-DD] update | [name]`. Increment `scripts/ingest_counter` by 1. Then run Step 5 (synthesis trigger check). Commit: `git add . && git commit -m "Update: [name] — [one-line change]"`. Stop.
 5. If neither exists → proceed as new ingest.
 
@@ -116,7 +132,7 @@ Silent: no questions, no check-ins, no confirmation before writing. Process and 
 **Step 5 — Synthesis trigger**
 1. Read current value of `scripts/ingest_counter`.
 2. If value < 5 → proceed to commit.
-3. If value >= 5 → run the Synthesis workflow below inline, then reset `scripts/ingest_counter` to `0`, then commit everything in one atomic commit: `git add . && git commit -m "Ingest + Synthesis: [one-line cross-source claim from synthesis]"`. Stop.
+3. If value >= 5 → run the Synthesis workflow below inline, reset `scripts/ingest_counter` to `0`, then commit everything in one atomic commit: `git add . && git commit -m "Ingest + Synthesis: [one-line cross-source claim from synthesis]"`. Stop.
 
 **Step 6 — Commit**
 `git add . && git commit -m "Ingest: [Source Title] — [one-line insight]"`
@@ -128,7 +144,7 @@ List all files read, created, or updated. Note whether synthesis ran.
 
 ### Synthesis
 
-Triggered when `scripts/ingest_counter` reaches 5. Runs inline during ingest. All gates run internally — never surface to user.
+Runs inline from Ingest (Step 5) or on demand. All gates run internally — never surface to user.
 
 **Step 1 — Read everything**
 1. Read all source notes in `wiki/source-notes/` — full content of each.
@@ -173,19 +189,12 @@ After passing all three gates: does this claim have a non-obvious business impli
 1. Update `wiki/index.md`: add or revise Findings entry. Summary must reflect the claim, not the topic.
 2. Append to `wiki/log.md`: `## [YYYY-MM-DD] synthesis | Theme Name`.
 
-**Step 6 — Commit (standalone only)**
-If synthesis was triggered manually rather than inline from Ingest:
-`git add . && git commit -m "Synthesis: [Theme] — [one-line claim]"`
-
----
-
-### Synthesize (manual trigger)
-
-Run on demand regardless of counter value. Use when you want synthesis now, not at the next counter threshold.
-
-1. Run the full Synthesis workflow above (Steps 1–5).
-2. Reset `scripts/ingest_counter` to `0`.
-3. Commit: `git add . && git commit -m "Synthesis: [one-line cross-source claim]"`
+**Step 6 — Reindex and commit**
+```
+qmd update --collection wiki && qmd embed
+git add . && git commit -m "Synthesis: [one-line cross-source claim]"
+```
+If triggered inline from Ingest, the caller handles the commit — skip this step.
 
 ---
 
@@ -207,15 +216,16 @@ Uses qmd for retrieval — precise semantic search over the compiled wiki layer,
 6. If user confirms filing:
    - Write a Findings page using the Findings format. Run the three synthesis gates before writing.
    - Update `wiki/index.md`. Append to `wiki/log.md`: `## [YYYY-MM-DD] query | Claim Title`.
+   - Run `qmd update --collection wiki && qmd embed`.
    - Commit: `git add . && git commit -m "Query: [Claim Title] — [one-line insight]"`
-   - Run `qmd update --collection wiki && qmd embed` to index the new page.
 
 ---
 
 ### Lint
 1. Check for: name collisions between Findings and source-notes, duplicated content across Findings pages, stale cross-links, orphan pages, CLAUDE.md contradictions and drift.
 2. Fix issues. Append to `wiki/log.md`: `## [YYYY-MM-DD] lint | Description`.
-3. Commit: `git add . && git commit -m "Lint: [Description]"`
+3. Run `qmd update --collection wiki && qmd embed`.
+4. Commit: `git add . && git commit -m "Lint: [Description]"`
 
 ## Conventions
 
