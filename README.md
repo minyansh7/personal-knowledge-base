@@ -13,45 +13,106 @@ A personal knowledge base where Claude maintains a persistent, interlinked wiki 
 
 The wiki gets richer with every source added and every query answered. Nothing is rediscovered from scratch.
 
-## How it works
+## Architecture
 
 ```
-Web Clipper → raw/articles/
-     ↓
-fswatch detects new file
-     ↓
-Claude ingests → wiki/source-notes/
-     ↓
-Every 5 ingests → Claude synthesizes → wiki/Findings/
+┌─────────────────────────────────────────────────────────┐
+│                        YOU                              │
+│          clip articles · ask questions                  │
+└────────────────┬─────────────────┬───────────────────── ┘
+                 │                 │
+          new article           query
+                 │                 │
+                 ▼                 ▼
+┌────────────────────┐   ┌─────────────────────┐
+│   Obsidian Web     │   │     Claude Code      │
+│   Clipper          │   │   + qmd (MCP)        │
+└────────┬───────────┘   └──────────┬──────────┘
+         │                          │
+         ▼                          │ qmd search → ranked pages
+  raw/articles/                     │ synthesize → propose file-back
+         │                          │
+         ▼                          ▼
+  fswatch detects          ┌─────────────────┐
+  new .md file             │   wiki/         │
+         │                 │                 │
+         ▼                 │  Findings/      │ ← cross-source claims
+  scripts/ingest.sh        │  source-notes/  │ ← one per source
+         │                 │  Meta/          │ ← architectural docs
+         ▼                 │  index.md       │ ← navigation
+  Claude Code              │  log.md         │ ← append-only record
+  (--print mode)           └────────┬────────┘
+         │                          │
+         ├── writes source note     │
+         ├── updates index.md       │
+         ├── appends log.md    ─────┘
+         ├── increments counter
+         │
+         ▼
+  counter >= 5?
+         │
+    yes  ▼
+  Synthesis runs inline
+  Findings pages written
+  counter reset to 0
+         │
+         ▼
+  git commit (atomic)
+         │
+         ▼
+  qmd reindex
 ```
+
+## How it works
 
 **Three layers:**
 - `/raw/` — immutable source documents, never modified
-- `wiki/` — everything Claude writes: source notes, Findings pages, index, log
-- `CLAUDE.md` — the schema that makes Claude a disciplined maintainer, not a generic chatbot
+- `wiki/` — everything Claude writes: source notes, Findings, Meta, index, log
+- `CLAUDE.md` — the complete algorithm: schema, formats, workflows, rules
 
-**Two wiki page types:**
+**Three wiki page types:**
 - **Source Notes** — one per source, the non-obvious insight a first-pass reader would miss
-- **Findings** — cross-source claims that only emerge when holding multiple sources simultaneously
+- **Findings** — cross-source claims that only emerge when holding multiple sources simultaneously. Named after the assertion, not the topic.
+- **Meta** — architectural documentation about how this wiki works
 
-## What's tracked in this repo
+**Four workflows:**
+- **Ingest** — triggered automatically when a new file lands in `raw/`. Dedup check → quality gate → write → synthesis trigger → commit
+- **Synthesis** — runs inline at every 5th ingest, or on demand. Reads all source notes, identifies cross-source claims, writes or extends Findings pages
+- **Query** — qmd retrieves semantically relevant pages, Claude synthesizes, proposes filing back if the answer produces something new
+- **Lint** — periodic health check: name collisions, orphan pages, stale links, CLAUDE.md drift
 
-Only the schema and automation layer:
-
+**The synthesis trigger:**
 ```
-CLAUDE.md       Schema, rules, page formats, workflow definitions
-.gitignore
+scripts/ingest_counter  →  increments every ingest
+                        →  synthesis fires when value >= 5
+                        →  resets to 0 after synthesis
 ```
 
-Wiki content, raw sources, scripts, and assets are local only — not pushed.
+**The file-back loop (Karpathy's key insight):**
+```
+query → qmd retrieves wiki pages → Claude synthesizes
+      → new cross-source insight? → propose filing back
+      → filed page gets indexed by qmd
+      → next query starts from richer foundation
+```
 
 ## Stack
 
-- **Claude Code** — LLM that maintains the wiki
+- **Claude Code** — LLM that maintains the wiki (`--print --dangerously-skip-permissions`)
+- **qmd** — local hybrid BM25 + vector search with LLM reranking, wired as MCP server
 - **Obsidian** — local markdown editor and graph viewer
 - **Obsidian Web Clipper** — clips web pages to `raw/articles/`
 - **fswatch + launchd** — watches `raw/` for new files, auto-triggers ingest
-- **git** — versions the schema; wiki content stays local
+- **git** — versions CLAUDE.md and README.md; wiki content stays local
+
+## What's tracked in this repo
+
+```
+CLAUDE.md    The complete algorithm — schema, formats, workflows, rules
+README.md    This file
+```
+
+Wiki content, raw sources, scripts, assets, and config are local only — not pushed.
 
 ## Inspiration
 
