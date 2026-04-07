@@ -17,8 +17,7 @@ wiki/
   Meta/            Architectural documentation for this wiki.
   index.md         Catalog of all pages. Navigation entry point.
   log.md           Append-only chronological record.
-.claude/
-  skills/          Executable skill files.
+scripts/
   ingest_counter   Integer tracking ingests since last synthesis run.
 ```
 
@@ -82,41 +81,106 @@ Reference material only. No interpretation.
 </details>
 ```
 
-## Skills
-
-Two skills. No others.
-
-**source-ingestor** — Triggered when a new `.md` file appears in `/raw/` or any subfolder. Processes one source → one source note. Silent: no discussion, no check-ins, reports after. Increments `.claude/ingest_counter` on success.
-
-**synthesis-builder** — Triggered when `.claude/ingest_counter` reaches 5. Reads all source notes, identifies cross-source claims not yet in Findings, writes or extends Findings pages. Resets counter to 0 on success.
-
 ## Workflows
 
-### Ingest (automated via source-ingestor skill)
-1. New `.md` file detected in `/raw/` or subfolder.
-2. Validate source completeness; note limitations if incomplete.
-3. Read source fully. Run Synthesis Quality Gate internally (never surface to user).
-4. Read `index.md` and relevant existing source notes and Findings pages.
-5. Write source note to `wiki/source-notes/`.
-6. Update `index.md`. Append to `log.md`. Increment `ingest_counter`.
-7. Commit. Report files touched.
+### Ingest
 
-**Synthesis Quality Gate (internal):**
-- Draft core insight.
-- Test: could someone guess this from document headings alone? If yes, go deeper.
-- Ask: what would a smart person miss on first read? That is the insight.
+Silent: no questions, no check-ins, no confirmation before writing. Process and report.
 
-### Synthesis (automated via synthesis-builder skill, every 5 ingests)
-1. Read all source notes and existing Findings pages.
-2. Identify claims that only emerge across multiple sources.
-3. Write or extend Findings pages. Include Business Note only if non-obvious.
-4. Update `index.md`. Append to `log.md`. Reset `ingest_counter` to 0.
-5. Commit. Report files touched.
+**Step 1 — Dedup check**
+1. Derive expected source note name: take the filename of the source, strip the extension.
+2. Check if `wiki/source-notes/[name].md` already exists.
+3. Scan `wiki/log.md` for any line containing `ingest | [name]`.
+4. If either exists:
+   - If content is materially the same → do nothing. Log: `## [YYYY-MM-DD] skip | [name] — already ingested`. Stop.
+   - If content is materially different → run as UPDATE: revise existing source note. Log: `## [YYYY-MM-DD] update | [name]`.
+5. If neither exists → proceed as new ingest.
+
+**Step 2 — Read and validate**
+1. Read the source fully.
+2. Check for truncated content or missing sections. If incomplete, note limitations and proceed with available content.
+3. Read `wiki/index.md` and relevant existing source notes and Findings pages — understand what's already filed.
+
+**Step 3 — Synthesis Quality Gate (internal — never surface to user)**
+1. Draft the core insight.
+2. Test: could someone familiar with this topic predict this claim from the document's headings alone? If yes, delete it and go deeper.
+3. Ask: what would a smart person miss on a first read of this source?
+4. That answer becomes the core insight. Do not proceed until it passes this test.
+
+**Step 4 — Write**
+1. Write source note to `wiki/source-notes/[Source Title].md` using the Source Note format above.
+2. Update `wiki/index.md`: add entry under Source Notes. Include all five columns: Page | Summary | Source Note | Raw Source | Last Updated. Source Note links to `[[source-notes/filename]]`, Raw Source links to `[[raw/articles/filename]]`. Summary must reflect the insight, not the topic.
+3. Append to `wiki/log.md`: `## [YYYY-MM-DD] ingest | Source Title`.
+4. Increment `scripts/ingest_counter` by 1 (create with value `1` if missing).
+
+**Step 5 — Synthesis trigger**
+1. Read current value of `scripts/ingest_counter`.
+2. If value < 5 → proceed to commit.
+3. If value = 5 → run the Synthesis workflow below inline, then reset `scripts/ingest_counter` to `0`, then commit everything in one atomic commit: `git add . && git commit -m "Ingest: [Source Title] — [one-line insight] + Synthesis"`. Stop.
+
+**Step 6 — Commit**
+`git add . && git commit -m "Ingest: [Source Title] — [one-line insight]"`
+
+**Step 7 — Report**
+List all files read, created, or updated. Note whether synthesis ran.
+
+---
+
+### Synthesis
+
+Triggered when `scripts/ingest_counter` reaches 5. Runs inline during ingest. All gates run internally — never surface to user.
+
+**Step 1 — Read everything**
+1. Read all source notes in `wiki/source-notes/` — full content of each.
+2. Read all existing Findings pages in `wiki/Findings/`.
+3. Read `wiki/index.md`.
+
+**Step 2 — Identify cross-source claims**
+What assertion only emerges from reading multiple source notes together? Test: could this claim appear in any single source? If yes, it belongs in source-notes, not Findings.
+
+**Step 3 — For each new claim, run three gates before writing anything**
+
+*Gate 3 — Claim uniqueness (create vs. extend)*
+1. State the new claim in one sentence.
+2. Read all existing Findings page titles and opening paragraphs.
+3. Does any existing Findings page already own this claim, even partially?
+   - Yes → extend that page. Proceed to Gate 1.
+   - No → create `wiki/Findings/[Assertion as filename].md`. Name after the claim, not the topic.
+
+*Gate 1 — Significance (append vs. discard)*
+1. State the new paragraph in one sentence.
+2. Read every existing paragraph in the target Findings page.
+3. Does this sentence say something that could not be inferred from what is already written?
+   - No → discard.
+   - Yes → does it belong to this page's assertion, or does it establish a different claim?
+     - Same territory → proceed to Gate 2.
+     - Different claim → return to Gate 3, treat as new claim.
+
+*Gate 2 — Format lock (before any write)*
+Verify the draft contains only these sections:
+```
+# [Assertion title]        required
+## Business Note           optional, one instance only
+# Connections              required
+<details> Structure Notes  required
+```
+If the draft contains any other `##` section, collapse it into body paragraphs or discard it. Never write a Findings page that deviates from this structure.
+
+**Step 4 — Business Note**
+After passing all three gates: does this claim have a non-obvious business implication that would change a decision? If yes, add `## Business Note`. If obvious or generic, skip entirely.
+
+**Step 5 — Update index and log**
+1. Update `wiki/index.md`: add or revise Findings entry. Summary must reflect the claim, not the topic.
+2. Append to `wiki/log.md`: `## [YYYY-MM-DD] synthesis | Theme Name`.
+
+---
 
 ### Query
 1. Read `index.md` first. Identify relevant pages. Drill into them.
 2. Synthesize answer with citations.
 3. If the answer produces a genuinely new cross-source claim, file it as a Findings page.
+
+---
 
 ### Lint
 1. Check for: name collisions between Findings and source-notes, duplicated content across Findings pages, stale cross-links, orphan pages, CLAUDE.md contradictions and drift.
