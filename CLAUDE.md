@@ -190,12 +190,18 @@ Run on demand regardless of counter value. Use when you want synthesis now, not 
 ---
 
 ### Query
-1. Read `index.md` first. Identify relevant pages. Drill into them.
-2. Synthesize answer with citations.
-3. If the answer produces a genuinely new cross-source claim:
+
+Uses qmd for retrieval — precise semantic search over the compiled wiki layer, not linear index scan.
+
+1. Run `qmd search "<topic>" -c wiki` to retrieve ranked relevant pages.
+2. Read full content of the top results with `qmd get qmd://wiki/<filepath>`.
+3. For broad topics, run `qmd search "<topic>" -c wiki --files` to get a ranked file list, then read selectively.
+4. Synthesize answer with citations to pages read.
+5. If the answer produces a genuinely new cross-source claim:
    - File it as a Findings page using the Findings format. Run the three synthesis gates before writing.
    - Update `wiki/index.md`. Append to `wiki/log.md`: `## [YYYY-MM-DD] query | Claim Title`.
    - Commit: `git add . && git commit -m "Query: [Claim Title] — [one-line insight]"`
+   - Run `qmd update --collection wiki && qmd embed` to index the new page.
 
 ---
 
