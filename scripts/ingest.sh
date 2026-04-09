@@ -9,6 +9,12 @@ WIKI_DIR="/Users/minyan/Minyan's Wiki"
 NODE_BIN="/Users/minyan/.nvm/versions/node/v24.14.1/bin/node"
 CLAUDE_BIN="/Users/minyan/.nvm/versions/node/v24.14.1/bin/claude"
 export PATH="/Users/minyan/.nvm/versions/node/v24.14.1/bin:$PATH"
+export HOME="/Users/minyan"
+
+# Load ANTHROPIC_API_KEY from shell profile (launchd does not source .zshrc)
+if [ -z "${ANTHROPIC_API_KEY:-}" ]; then
+  export ANTHROPIC_API_KEY=$(grep '^export ANTHROPIC_API_KEY=' "$HOME/.zshrc" 2>/dev/null | head -1 | sed 's/export ANTHROPIC_API_KEY=//')
+fi
 PROMPT_FILE="$WIKI_DIR/scripts/ingest.txt"
 LOG_FILE="$WIKI_DIR/scripts/watcher.log"
 INGEST_FILE="${1:-}"
