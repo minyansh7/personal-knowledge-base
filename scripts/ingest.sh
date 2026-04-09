@@ -9,12 +9,15 @@ WIKI_DIR="/Users/minyan/Minyan's Wiki"
 NODE_BIN="/Users/minyan/.nvm/versions/node/v24.14.1/bin/node"
 CLAUDE_BIN="/Users/minyan/.nvm/versions/node/v24.14.1/bin/claude"
 export PATH="/Users/minyan/.nvm/versions/node/v24.14.1/bin:$PATH"
-export HOME="/Users/minyan"
+export HOME="/Users/minyan"  # launchd does not set HOME; needed for ~/.claude/ OAuth token access
+unset ANTHROPIC_API_KEY  # never use API key — subscription only
 
-# Load ANTHROPIC_API_KEY from shell profile (launchd does not source .zshrc)
-if [ -z "${ANTHROPIC_API_KEY:-}" ]; then
-  export ANTHROPIC_API_KEY=$(grep '^export ANTHROPIC_API_KEY=' "$HOME/.zshrc" 2>/dev/null | head -1 | sed 's/export ANTHROPIC_API_KEY=//')
+# Load long-lived OAuth token for headless use (generated via: claude setup-token)
+# Store your token in ~/.claude_ingest_token — never commit that file
+if [[ -f "$HOME/.claude_ingest_token" ]]; then
+  export CLAUDE_CODE_OAUTH_TOKEN=$(cat "$HOME/.claude_ingest_token")
 fi
+
 PROMPT_FILE="$WIKI_DIR/scripts/ingest.txt"
 LOG_FILE="$WIKI_DIR/scripts/watcher.log"
 INGEST_FILE="${1:-}"
