@@ -1,0 +1,2 @@
+The file to ingest is: $INGEST_FILE
+Use the source-ingestor skill. Silent.
