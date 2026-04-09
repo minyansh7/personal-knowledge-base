@@ -68,18 +68,19 @@ The wiki gets richer with every source added and every query answered. Nothing i
 **Three layers:**
 - `/raw/` — immutable source documents, never modified
 - `wiki/` — everything Claude writes: source notes, Findings, Meta, index, log
-- `CLAUDE.md` — the complete algorithm: schema, formats, workflows, rules
+- `CLAUDE.md` — the schema: architecture, page types, format templates, conventions
+- `.claude/skills/` — the procedures: one skill file per workflow, loaded on demand
 
 **Three wiki page types:**
 - **Source Notes** — one per source, the non-obvious insight a first-pass reader would miss
 - **Findings** — cross-source claims that only emerge when holding multiple sources simultaneously. Named after the assertion, not the topic.
 - **Meta** — architectural documentation about how this wiki works
 
-**Four workflows:**
-- **Ingest** — triggered automatically when a new file lands in `raw/`. Dedup check → quality gate → write → synthesis trigger → commit
-- **Synthesis** — runs inline at every 5th ingest, or on demand. Reads all source notes, identifies cross-source claims, writes or extends Findings pages
-- **Query** — qmd retrieves semantically relevant pages, Claude synthesizes, proposes filing back if the answer produces something new
-- **Lint** — periodic health check: name collisions, orphan pages, stale links, CLAUDE.md drift
+**Four workflows** (each a skill, loaded only when invoked):
+- **Ingest** (`source-ingestor`) — triggered automatically when a new file lands in `raw/`. Dedup check → quality gate → write → synthesis trigger → commit
+- **Synthesis** (`synthesis-builder`) — runs inline at every 5th ingest, or on demand. Reads all source notes, identifies cross-source claims, writes or extends Findings pages
+- **Query** (`query`) — qmd retrieves semantically relevant pages, Claude synthesizes, proposes filing back if the answer produces something new
+- **Lint** (`lint`) — periodic health check: name collisions, orphan pages, stale links, CLAUDE.md drift
 
 **The synthesis trigger:**
 ```
@@ -108,8 +109,12 @@ query → qmd retrieves wiki pages → Claude synthesizes
 ## What's tracked in this repo
 
 ```
-CLAUDE.md    The complete algorithm — schema, formats, workflows, rules
-README.md    This file
+CLAUDE.md                        Schema — architecture, page types, formats, conventions
+.claude/skills/source-ingestor/  Ingest workflow
+.claude/skills/synthesis-builder/ Synthesis workflow
+.claude/skills/query/            Query workflow
+.claude/skills/lint/             Lint workflow
+README.md                        This file
 ```
 
 Wiki content, raw sources, scripts, assets, and config are local only — not pushed.
